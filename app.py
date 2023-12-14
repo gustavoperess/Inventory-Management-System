@@ -78,10 +78,6 @@ def login_page():
                
     return render_template('login.html', user=current_user, all=all, all_users=all_users)
     
-    
-    
-    return render_template('login.html', user=current_user, all=all, all_users=all_users)
-
 
 
 @app.route('/add_item', methods=['GET', 'POST'])
@@ -95,7 +91,7 @@ def add_item():
         quantity = request.form['quantity']
         category = request.form['category']
         new_product = Product(None, product_name, quantity, category, current_user.id)
-        add_product = product.create(new_product)
+        product.create(new_product)
         
         return redirect(url_for('login_page'))
     
@@ -117,15 +113,23 @@ def register_page():
     if form.validate_on_submit():
         connection = get_flask_database_connection(app)
         repository = UserRepository(connection)
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        new_user = User(None, username=form.username.data, password=hashed_password, email=form.email.data)
-        success, user = repository.create(new_user)
-        print(success)
-        if success:
-            flash("Registration successful")
-            return redirect(url_for('main_page'))
-        else:
+    
+        email = repository.find_by_email(form.email.data)
+        name = repository.find_by_name(form.username.data)
+        
+        if email.email == form.email.data:
+             flash("Email already exists. Please choose a different username.")
+        if name.username == form.username.data:
             flash("Username already exists. Please choose a different username.")
+
+        else:
+            hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+            new_user = User(None, username=form.username.data, password=hashed_password, email=form.email.data)
+            success, user = repository.create(new_user)
+            if success:
+                flash("Registration successful")
+                return redirect(url_for('main_page'))
+            
     return render_template('register.html', form=form)
     
 if __name__ == '__main__':
