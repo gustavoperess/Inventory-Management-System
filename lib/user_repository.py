@@ -59,7 +59,8 @@ class UserRepository:
             return True, user 
         else:
             return False, None 
-        
+    
+    # ensure that the nex id always the +1 from the latest created.     
     def _generate_next_id(self):
         users = self.all()
         return max([user.id for user in users], default=0) + 1
