@@ -1,5 +1,4 @@
--- Database created using potsgress 
-
+-- Database created using PostgreSQL
 
 -- Below is the table for testing purpose
 
@@ -16,31 +15,28 @@ CREATE SEQUENCE users_id_seq;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE,
-    password VARCHAR(255)
-    email VARCHAR(255) UNIQUE,
-
+    password VARCHAR(255),
+    email VARCHAR(255) UNIQUE
 );
 
 -- Create sequence for products
 CREATE SEQUENCE products_id_seq;
 
 -- Create products table with a foreign key constraint
-CREATE TABLE product (
+CREATE TABLE products (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
+    product_name VARCHAR(255),
     quantity INT,
     category VARCHAR(255),
-    
     user_id INT,
-    CONSTRAINT fk_user FOREIGN KEY (user_id)
-        REFERENCES users (id)
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
--- Insert sample data into users and posts tables
-INSERT INTO users (name, password, email) VALUES ('Gustavo', 'gustavo123', "gustavo123@gmail.com");
-INSERT INTO users (name, password, email) VALUES ('Ashley', 'ashley123', "ashley123@gmail.com");
-INSERT INTO users (name, password, email) VALUES ('Mario', 'mario123', "mario123@gmail.com");
-INSERT INTO users (name, password, email) VALUES ('Rosangela', 'rosangela123', "rosangela123@gmail.com");
-INSERT INTO product (name, quantity, category, user_id) VALUES ('milk', 5, 'dairy',  1);
-INSERT INTO product (name, quantity, category, user_id) VALUES ('eggs', 3,  'dairy',  1);
-INSERT INTO product (name, quantity, category, user_id) VALUES ('letuce', 1, 'vegetables',  2);
+-- Insert sample data into users and products tables
+INSERT INTO users (username, password, email) VALUES ('Gustavo', 'gustavo123', 'gustavo123@gmail.com');
+INSERT INTO users (username, password, email) VALUES ('Ashley', 'ashley123', 'ashley123@gmail.com');
+INSERT INTO users (username, password, email) VALUES ('Mario', 'mario123', 'mario123@gmail.com');
+INSERT INTO users (username, password, email) VALUES ('Rosangela', 'rosangela123', 'rosangela123@gmail.com');
+INSERT INTO products (product_name, quantity, category, user_id) VALUES ('milk', 5, 'dairy',  1);
+INSERT INTO products (product_name, quantity, category, user_id) VALUES ('eggs', 3,  'dairy',  1);
+INSERT INTO products (product_name, quantity, category, user_id) VALUES ('lettuce', 1, 'vegetables',  2);
