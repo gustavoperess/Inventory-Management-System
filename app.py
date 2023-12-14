@@ -2,8 +2,8 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, flash
 from lib.database_connection import get_flask_database_connection
 from lib.user_repository import UserRepository
-# from lib.products_repository import ProductsRepository
-# from lib.products import Products
+from lib.product_repository import ProductRepository
+from lib.product import Product
 from flask_login import login_user, LoginManager, login_required, logout_user, current_user
 from lib.user import User
 from lib.forms import LoginForm, RegisterForm
@@ -28,7 +28,15 @@ def load_user(user_id):
     user_repository = UserRepository(connection)
     user = user_repository.find(int(user_id))
     
+    # Load products information
+    product_repository = ProductRepository(connection)
+    products = product_repository.find(int(user_id))
+
+    if user:
+        user.products = products
+    
     return user
+
 
 @app.route('/', methods=['GET', 'POST'])
 def main_page():
@@ -43,6 +51,48 @@ def main_page():
         else:
             flash("User not in the system")
     return render_template('index.html', form=form)
+
+
+
+
+@app.route('/login', methods=['GET', 'POST'])
+@login_required
+def login_page():
+    connection = get_flask_database_connection(app)
+    post_repository = ProductRepository(connection)
+    user_repository = UserRepository(connection)
+    
+    all = post_repository.all()
+    all_users = user_repository.all()
+    
+    if not current_user.products:
+        flash("User does not have any products yet")
+    
+    if request.method == 'POST':
+        if 'title' in request.form and 'content' in request.form:
+            connection = get_flask_database_connection(app)
+            repository = ProductRepository(connection)
+            product_name = request.form["product_name"]
+            quantity = request.form["quantity"]
+            category = request.form["category"]
+            post = Product(None, product_name, quantity, category, current_user.id)
+            new_post = repository.create(post)
+
+            # Redirect to the login page after creating a new post
+            return redirect(url_for('login_page'))
+        
+    if request.method == 'POST' and 'delete_post' in request.form:
+        post_id_to_delete = int(request.form['delete_post'])
+        connection = get_flask_database_connection(app)
+        new_repo = ProductRepository(connection)
+        new_repo.delete(post_id_to_delete)
+        
+        return redirect(url_for('login_page'))
+               
+    return render_template('login.html', user=current_user, all=all, all_users=all_users)
+
+
+
 
 
 
