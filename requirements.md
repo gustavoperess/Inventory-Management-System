@@ -1,0 +1,10 @@
+flask==*
+flask-login==*
+flask-wtf==*
+flask-bcrypt==*
+pytest==*
+psycopg==*
+pytest-playwright==*
+pytest-xprocess==*
+py==*
+autopep8==*

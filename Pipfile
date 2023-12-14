@@ -8,6 +8,13 @@ flask = "*"
 pytest = "*"
 psycopg = "*"
 playwright = "*"
+flask-login = "*"
+pytest-playwright = "*"
+py = "*"
+autopep8 = "*"
+pytest-xprocess = "*"
+flask-bcrypt = "*"
+flask-wtf = "*"
 
 [dev-packages]
 
