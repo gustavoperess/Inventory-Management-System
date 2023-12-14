@@ -7,15 +7,14 @@
 <body>
     <h1>IMG</h1>
     <h1 >Welcome back {{ user.username.title() }}</h1>
-    <form method="POST" action="">
     
-    <form>
-        create
+    <a href="{{url_for('add_item')}}" >+</a>
+
     </form>
-    {% if user.id == 3 %}
-    {% endif %}
     {% for product in all %}
-        <li> {{product.id}} {{product.product_name}} {{product.quantity}} {{product.category}}   {{product.user_id}}</li>
+        {% if product.user_id == user.id %}
+        <li> {{product.id}} {{product.product_name}} {{product.quantity}} {{product.category}}</li>
+        {% endif %}
     {% endfor %}
 
     </form>

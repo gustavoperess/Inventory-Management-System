@@ -68,11 +68,31 @@ def login_page():
     if not current_user.products:
         flash("User does not have any posts yet")
 
-    
+    if request.method == 'POST':
+        pass
     
     
     
     return render_template('login.html', user=current_user, all=all, all_users=all_users)
+
+
+
+@app.route('/add_item', methods=['GET', 'POST'])
+@login_required
+def add_item():
+    connection = get_flask_database_connection(app)
+    product = ProductRepository(connection)
+    
+    if request.method == "POST":
+        product_name = request.form['product_name']
+        quantity = request.form['quantity']
+        category = request.form['category']
+        new_product = Product(None, product_name, quantity,category, current_user.user)
+        add_product = product.create(new_product)
+        return redirect(url_for('login_page'))
+    
+    return render_template('add_item.html')
+
 
 
 @app.route('/logout', methods=['GET', 'POST'])
