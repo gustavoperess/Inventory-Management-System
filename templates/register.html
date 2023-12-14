@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Chitter Main Page</title>
+    <title>IMG register page</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    
   </head>
   <body>
-    <h1>Welcome to IMG</h1>
-    <h2>Please enter your user name and password or create a new account</h2>
+    <h1>Register</h1>
     <form method="POST" action="">
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           <ul class="flashes">
             {% for message in messages %}
-              <li>{{ message }}</li>
+              {{ message }}
             {% endfor %}
           </ul>
         {% endif %}
@@ -22,9 +20,9 @@
       {{ form.hidden_tag() }}
       {{ form.username }}<br>
       {{ form.password }}<br>
+      {{ form.email }}<br>
       {{ form.submit }} <br>
     </form>
-    
-    <a href="{{url_for('register_page')}}">Sign up</a>
+    <a class="register-link" href="{{ url_for('main_page') }}">Already have an account? Log In</a>
   </body>
 </html>

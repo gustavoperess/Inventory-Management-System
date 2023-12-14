@@ -19,6 +19,17 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login_page"
 
+
+@login_manager.user_loader
+def load_user(user_id):
+    connection = get_flask_database_connection(app)
+    
+    # Load user information
+    user_repository = UserRepository(connection)
+    user = user_repository.find(int(user_id))
+    
+    return user
+
 @app.route('/', methods=['GET', 'POST'])
 def main_page():
     form = LoginForm()
@@ -32,7 +43,25 @@ def main_page():
         else:
             flash("User not in the system")
     return render_template('index.html', form=form)
-    
+
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register_page():
+    form = RegisterForm()
+    if form.validate_on_submit():
+        connection = get_flask_database_connection(app)
+        repository = UserRepository(connection)
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        new_user = User(None, username=form.username.data, password=hashed_password, email=form.email.data)
+        success, user = repository.create(new_user)
+        print(success)
+        if success:
+            flash("Registration successful")
+            return redirect(url_for('main_page'))
+        else:
+            flash("Username already exists. Please choose a different username.")
+    return render_template('register.html', form=form)
     
 if __name__ == '__main__':
     app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
