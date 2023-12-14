@@ -84,11 +84,12 @@ def add_item():
     product = ProductRepository(connection)
     
     if request.method == "POST":
-        product_name = request.form['product_name']
+        product_name = request.form['name']
         quantity = request.form['quantity']
         category = request.form['category']
-        new_product = Product(None, product_name, quantity,category, current_user.user)
+        new_product = Product(None, product_name, quantity, category, current_user.id)
         add_product = product.create(new_product)
+        
         return redirect(url_for('login_page'))
     
     return render_template('add_item.html')
