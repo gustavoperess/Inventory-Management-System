@@ -68,8 +68,15 @@ def login_page():
     if not current_user.products:
         flash("User does not have any posts yet")
 
-    if request.method == 'POST':
-        pass
+    if request.method == 'POST' and 'delete_post' in request.form:
+        product_id_to_delete = int(request.form['delete_post'])
+        connection = get_flask_database_connection(app)
+        new_repo = ProductRepository(connection)
+        new_repo.delete(product_id_to_delete)
+        
+        return redirect(url_for('login_page'))
+               
+    return render_template('login.html', user=current_user, all=all, all_users=all_users)
     
     
     

@@ -55,6 +55,16 @@ def test_create_product(db_connection):
         Product(4, 'tomato', 3, 'fruit', 1)
     ]
     
+def test_to_delete(db_connection):
+    db_connection.seed("seeds/IMG.sql") 
+    repository = ProductRepository(db_connection) 
+   
+    assert repository.delete(1) == None
+    assert repository.all() == [
+        Product(2, 'eggs', 3,  'dairy', 1),
+        Product(3, 'lettuce', 1, 'vegetables', 2)
+    ]
+
 # # """
 # # When we call UserRepository#delete
 # # We remove a record from the database.

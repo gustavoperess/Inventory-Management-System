@@ -34,6 +34,14 @@ class ProductRepository:
         return product 
 
     
+    def delete(self, id):
+        self._connection.execute(
+            "DELETE FROM products WHERE id = %s",
+            [id]
+        )
+        return None
+    
+    
     # ensure that the nex id always the +1 from the latest created.     
     def _generate_next_id(self):
         users = self.all()
