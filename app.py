@@ -58,10 +58,28 @@ def main_page():
 @app.route('/login', methods=['GET', 'POST'])
 @login_required
 def login_page():
-    return render_template('login.html')
+    connection = get_flask_database_connection(app)
+    product_repository = ProductRepository(connection)
+    user_repository = UserRepository(connection)
+    
+    all = product_repository.all()
+    all_users = user_repository.all()
+    
+    if not current_user.products:
+        flash("User does not have any posts yet")
+
+    
+    
+    
+    
+    return render_template('login.html', user=current_user, all=all, all_users=all_users)
 
 
-
+@app.route('/logout', methods=['GET', 'POST'])
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main_page'))
 
 
 

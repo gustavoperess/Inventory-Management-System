@@ -1,1 +1,24 @@
-<h1>HELLo</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chitter Login page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>IMG</h1>
+    <h1 >Welcome back {{ user.username.title() }}</h1>
+    <form method="POST" action="">
+    
+    <form>
+        create
+    </form>
+    {% if user.id == 3 %}
+    {% endif %}
+    {% for product in all %}
+        <li> {{product.id}} {{product.product_name}} {{product.quantity}} {{product.category}}   {{product.user_id}}</li>
+    {% endfor %}
+
+    </form>
+<a href="{{url_for('main_page')}}" class="logout-link">Log out</a>
+</body>
+</html>

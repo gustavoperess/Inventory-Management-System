@@ -14,9 +14,9 @@ def test_find_all_products(db_connection):
     products = repository.all()
     
     assert products == [
-        Product(1, 'milk', 5, 'dairy'),
-        Product(2, 'eggs', 3,  'dairy'),
-        Product(3, 'lettuce', 1, 'vegetables')
+        Product(1, 'milk', 5, 'dairy', 1),
+        Product(2, 'eggs', 3,  'dairy', 1),
+        Product(3, 'lettuce', 1, 'vegetables', 2)
     ]
 
 
@@ -31,7 +31,7 @@ def test_find_single_product(db_connection):
     repository = ProductRepository(db_connection)  # Create a new ArtistRepository
 
     user = repository.find(1)
-    assert user ==  Product(1, 'milk', 5, 'dairy')
+    assert user ==  Product(1, 'milk', 5, 'dairy', 1)
     
 
 
@@ -40,19 +40,19 @@ When we call ProductRepository#create
 We create a record from the database.
 """
 
-def test_create_user(db_connection):
+def test_create_product(db_connection):
     db_connection.seed("seeds/IMG.sql")  # Seed our database with some test data
     repository = ProductRepository(db_connection)  # Create a new ArtistRepository
     
-    create_user = repository.create(Product(None, 'tomato', 3, 'fruit'))
-    assert create_user ==  Product(4, 'tomato', 3, 'fruit')
+    create_product = repository.create(Product(None, 'tomato', 3, 'fruit', 1))
+    assert create_product ==  Product(4, 'tomato', 3, 'fruit', 1)
     
-    all_users = repository.all()
-    assert  all_users == [
-        Product(1, 'milk', 5, 'dairy'),
-        Product(2, 'eggs', 3,  'dairy'),
-        Product(3, 'lettuce', 1, 'vegetables'),
-        Product(4, 'tomato', 3, 'fruit')
+    all_products = repository.all()
+    assert  all_products == [
+        Product(1, 'milk', 5, 'dairy', 1),
+        Product(2, 'eggs', 3,  'dairy', 1),
+        Product(3, 'lettuce', 1, 'vegetables', 2),
+        Product(4, 'tomato', 3, 'fruit', 1)
     ]
     
 # # """
