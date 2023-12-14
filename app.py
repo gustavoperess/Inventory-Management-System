@@ -45,7 +45,7 @@ def main_page():
         connection = get_flask_database_connection(app)
         repository = UserRepository(connection)
         user = repository.find_by_name(form.username.data)
-        if user and bcrypt.check_password_hash(user.username.encode('utf-8'), form.password.data.encode('utf-8')):
+        if user and bcrypt.check_password_hash(user.password.encode('utf-8'), form.password.data.encode('utf-8')):   
                 login_user(user)      
                 return redirect(url_for('login_page'))
         else:
@@ -58,38 +58,7 @@ def main_page():
 @app.route('/login', methods=['GET', 'POST'])
 @login_required
 def login_page():
-    connection = get_flask_database_connection(app)
-    post_repository = ProductRepository(connection)
-    user_repository = UserRepository(connection)
-    
-    all = post_repository.all()
-    all_users = user_repository.all()
-    
-    if not current_user.products:
-        flash("User does not have any products yet")
-    
-    if request.method == 'POST':
-        if 'title' in request.form and 'content' in request.form:
-            connection = get_flask_database_connection(app)
-            repository = ProductRepository(connection)
-            product_name = request.form["product_name"]
-            quantity = request.form["quantity"]
-            category = request.form["category"]
-            post = Product(None, product_name, quantity, category, current_user.id)
-            new_post = repository.create(post)
-
-            # Redirect to the login page after creating a new post
-            return redirect(url_for('login_page'))
-        
-    if request.method == 'POST' and 'delete_post' in request.form:
-        post_id_to_delete = int(request.form['delete_post'])
-        connection = get_flask_database_connection(app)
-        new_repo = ProductRepository(connection)
-        new_repo.delete(post_id_to_delete)
-        
-        return redirect(url_for('login_page'))
-               
-    return render_template('login.html', user=current_user, all=all, all_users=all_users)
+    return render_template('login.html')
 
 
 
