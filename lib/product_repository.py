@@ -1,6 +1,6 @@
 from lib.product import Product
 
-class UserRepository:
+class ProductRepository:
     def __init__(self, connection):
         self._connection = connection
     
