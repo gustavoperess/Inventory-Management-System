@@ -18,7 +18,7 @@
             <h1>Categories</h1>
             <ul>
                 {% for product in all %}
-                    <li>{{ product.category }}</li>
+                    <li>{{ product }}</li>
                 {% endfor %}
             </ul>
         </div>
@@ -31,7 +31,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>Inventory</th>
+                        <th>Quantity</th>
                         <th>View</th>
                     </tr>
                 </thead>
@@ -41,9 +41,10 @@
                             <tr>
                                 <td>{{ product.id }}</td>
                                 <td>{{ product.product_name }}</td>
+                                <td>${{ product.price }}</td>
                                 <td>{{ product.quantity }}</td>
-                                <td>{{ product.price }}</td>
                                 <td>{{ product.inventory }}</td>
+                                <td>{{ product.category }}</td>
                                 <td>
                                     <form method="POST" action="{{ url_for('login_page') }}">
                                         <input type="hidden" name="delete_post" value="{{ product.id }}">
