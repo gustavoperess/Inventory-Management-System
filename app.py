@@ -113,23 +113,22 @@ def register_page():
     if form.validate_on_submit():
         connection = get_flask_database_connection(app)
         repository = UserRepository(connection)
-    
-        email = repository.find_by_email(form.email.data)
-        name = repository.find_by_name(form.username.data)
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        new_user = User(None, username=form.username.data, password=hashed_password, email=form.email.data)
+        success, user = repository.create(new_user)
+        if success:
+            flash("Registration successful")
+            return redirect(url_for('main_page'))
         
-        if email.email == form.email.data:
-             flash("Email already exists. Please choose a different username.")
-        if name.username == form.username.data:
+        elif not success and repository.find_name(form.username.data) is not None and not success and repository.find_email(form.email.data) is not None:
+            flash("Username and email already exist. Please choose a different username and email.")
+        
+        elif not success and repository.find_name(form.username.data) is not None:
             flash("Username already exists. Please choose a different username.")
+        elif not success and repository.find_email(form.email.data) is not None:
+            flash("Email already exists. Please choose a different email.")
 
-        else:
-            hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-            new_user = User(None, username=form.username.data, password=hashed_password, email=form.email.data)
-            success, user = repository.create(new_user)
-            if success:
-                flash("Registration successful")
-                return redirect(url_for('main_page'))
-            
+      
     return render_template('register.html', form=form)
     
 if __name__ == '__main__':

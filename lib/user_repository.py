@@ -44,23 +44,45 @@ class UserRepository:
             return User(row['id'], row['username'], row['password'], row['email'])
         else:
             return None
+        
+    def find_name(self, name):
+        rows = self._connection.execute(
+            'SELECT username FROM users WHERE username = %s', [name]
+        )
+        
+        if rows:
+            row = rows[0]
+            return row['username'] if row else None
+        else:
+            return None
     
+    def find_email(self, email):
+        rows = self._connection.execute(
+            'SELECT email FROM users WHERE email = %s', [email]
+        )
+        
+        if rows:
+            row = rows[0]
+            return row['email'] if row else None
+        else:
+            return None
+        
     
     def create(self, user):
         user_already_exist = self.find_by_name(user.username)
-        email_already_exist = self.find_by_email(user.email)
-        if not user_already_exist or not email_already_exist:
-            rows = self._connection.execute('INSERT INTO users (username, password, email) VALUES (%s, %s, %s) RETURNING id', [
+        email_already_exist = self.find_by_email(user.email)     
+        if user_already_exist == None and email_already_exist == None:
+            users = self._connection.execute('INSERT INTO users (username, password, email) VALUES (%s, %s, %s) RETURNING id, username, email', [
                                             user.username, user.password, user.email])
             
-            row = rows[0]
-            user.id = self._generate_next_id()
-            user.id = row["id"]
-            return True, user 
+            user = users[0]
+            return True, user
         else:
-            return False, None 
+            return False, None
+      
+      
+      
+      
+
     
-    # ensure that the nex id always the +1 from the latest created.     
-    def _generate_next_id(self):
-        users = self.all()
-        return max([user.id for user in users], default=0) + 1
+    
