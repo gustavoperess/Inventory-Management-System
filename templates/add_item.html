@@ -5,23 +5,14 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
-    <h1>Register</h1>
-    <form method="POST" action="/add_item">
-        <p>
-            <label for="name">Name</label><br>
-            <input type="text" name="name" id="name">
-        </p>
-        <p>
-            <label for="quantity">Quantity</label><br>
-            <textarea name="quantity" id="quantity"></textarea>
-        </p>
-        <p>
-            <label for="category">Category</label><br>
-            <textarea name="category" id="category"></textarea>
-        </p>
-        <input type="submit" value="Add Content">
+    <h1>Add Item</h1>
+    <form method="POST" action="">
+      {{ form.product_name }}</br>
+      {{ form.price }}</br>
+      {{ form.quantity }}</br>
+      {{ form.category }}</br>
+      {{ form.submit }}
     </form>
-    
-    </form>
+    <a class="register-link" href="{{ url_for('login_page') }}">back to login page</a>
   </body>
 </html>

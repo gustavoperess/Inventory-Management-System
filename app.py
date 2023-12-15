@@ -6,9 +6,9 @@ from lib.product_repository import ProductRepository
 from lib.product import Product
 from flask_login import login_user, LoginManager, login_required, logout_user, current_user
 from lib.user import User
-from lib.forms import LoginForm, RegisterForm
+from lib.forms import LoginForm, RegisterForm, AddProductForm
 from flask_bcrypt import Bcrypt
-from datetime import datetime
+
 
 app = Flask(__name__, static_url_path='/static')
 bcrypt = Bcrypt(app)
@@ -85,17 +85,12 @@ def login_page():
 def add_item():
     connection = get_flask_database_connection(app)
     product = ProductRepository(connection)
-    
-    if request.method == "POST":
-        product_name = request.form['name']
-        quantity = request.form['quantity']
-        category = request.form['category']
-        new_product = Product(None, product_name, quantity, category, 3.99 ,current_user.id)
+    form = AddProductForm()
+    if form.validate_on_submit:
+        new_product = Product(None, form.product_name.data,form.quantity.data, form.category.data, form.price.data , current_user.id)
         product.create(new_product)
-        
-        return redirect(url_for('login_page'))
-    
-    return render_template('add_item.html')
+        # return redirect(url_for('login_page'))
+    return render_template('add_item.html', form=form)
 
 
 
