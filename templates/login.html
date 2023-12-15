@@ -28,9 +28,9 @@
             <table>
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>Unit</th>
                         <th>Inventory</th>
                         <th>View</th>
                     </tr>
@@ -39,6 +39,7 @@
                     {% for product in all %}
                         {% if product.user_id == user.id %} 
                             <tr>
+                                <td>{{ product.id }}</td>
                                 <td>{{ product.product_name }}</td>
                                 <td>{{ product.price }}</td>
                                 <td>{{ product.unit }}</td>

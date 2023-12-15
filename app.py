@@ -90,7 +90,7 @@ def add_item():
         product_name = request.form['name']
         quantity = request.form['quantity']
         category = request.form['category']
-        new_product = Product(None, product_name, quantity, category, current_user.id)
+        new_product = Product(None, product_name, quantity, category, 3.99 ,current_user.id)
         product.create(new_product)
         
         return redirect(url_for('login_page'))
