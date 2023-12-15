@@ -6,13 +6,13 @@
   </head>
   <body>
     <h1>Add Item</h1>
-    <form method="POST" action="">
+    <form method="POST" action="add_item">
       {{ form.product_name }}</br>
       {{ form.price }}</br>
       {{ form.quantity }}</br>
       {{ form.category }}</br>
       {{ form.submit }}
     </form>
-    <a class="register-link" href="{{ url_for('login_page') }}">back to login page</a>
+    <a  href="{{ url_for('login_page') }}">back to login page</a>
   </body>
 </html>

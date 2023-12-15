@@ -29,9 +29,9 @@ class LoginForm(FlaskForm):
     
 class AddProductForm(FlaskForm):
     product_name = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "ProductName"})
-    category = SelectField('Programming Language', choices=category_names)
     quantity = IntegerField('Quantity',validators=[InputRequired()])
-    price = DecimalField('Price', places=3, render_kw={"placeholder": "Price"})   
+    price = DecimalField('Price', places=3, render_kw={"placeholder": "Price"})
+    category = SelectField(choices=category_names)
     submit = SubmitField('Add')
     
     

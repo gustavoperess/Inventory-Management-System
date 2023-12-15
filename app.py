@@ -89,7 +89,6 @@ def add_item():
     if form.validate_on_submit:
         new_product = Product(None, form.product_name.data,form.quantity.data, form.category.data, form.price.data , current_user.id)
         product.create(new_product)
-        # return redirect(url_for('login_page'))
     return render_template('add_item.html', form=form)
 
 
