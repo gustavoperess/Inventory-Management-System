@@ -25,25 +25,6 @@ class UserRepository:
         else:
             return None
     
-    def find_by_name(self, username):
-        rows = self._connection.execute(
-            'SELECT * from users WHERE username = %s', [username])
-         
-        if rows:
-            row = rows[0]
-            return User(row['id'], row['username'], row['password'], row['email'])
-        else:
-            return None
-    
-    def find_by_email(self, email):
-        rows = self._connection.execute(
-            'SELECT * from users WHERE email = %s', [email])
-         
-        if rows:
-            row = rows[0]
-            return User(row['id'], row['username'], row['password'], row['email'])
-        else:
-            return None
         
     def find_name(self, name):
         rows = self._connection.execute(
@@ -69,8 +50,8 @@ class UserRepository:
         
     
     def create(self, user):
-        user_already_exist = self.find_by_name(user.username)
-        email_already_exist = self.find_by_email(user.email)     
+        user_already_exist = self.find_name(user.username)
+        email_already_exist = self.find_email(user.email)     
         if user_already_exist == None and email_already_exist == None:
             users = self._connection.execute('INSERT INTO users (username, password, email) VALUES (%s, %s, %s) RETURNING id, username, email', [
                                             user.username, user.password, user.email])
