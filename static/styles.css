@@ -24,6 +24,12 @@ main {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.categories-container ul li {
+  list-style: none;
+  border-bottom: 1px solid #ccc; /* Add a line at the bottom */
+  padding: 10px;
+}
+
 .products-container {
   width: 65%;
   background-color: #fff;
