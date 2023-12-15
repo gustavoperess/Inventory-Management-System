@@ -3,18 +3,18 @@ from wtforms import StringField, PasswordField, SubmitField, EmailField, SelectF
 from wtforms.validators import InputRequired, Length, ValidationError
 
 category_names = [
-            ('FR', 'Fruit'),
-            ('VE', 'Vegetable'),
-            ('DA', 'Dairy'),
-            ('ME', 'Meat'),
-            ('SF', 'Seafood'),
-            ('BA', 'Bakery'),
-            ('BR', 'Breakfast'),
-            ('PA', 'Pantry'),
-            ('CG', 'Canned Goods'),
-            ('PC', 'Personal Care'),
-            ('HH', 'Household'),
-            ]
+        ('Household', 'Household'),
+        ('Fruit', 'Fruit'),
+        ('Vegetable', 'Vegetable'),
+        ('Dairy', 'Dairy'),
+        ('Meat', 'Meat'),
+        ('Seafood', 'Seafood'),
+        ('Bakery', 'Bakery'),
+        ('Breakfast', 'Breakfast'),
+        ('Pantry', 'Pantry'),
+        ('Canned Goods', 'Canned Goods'),
+        ('Personal Care', 'Personal Care'),
+    ]
 
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})

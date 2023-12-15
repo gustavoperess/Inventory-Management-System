@@ -14,16 +14,16 @@
     </header>
 
     <main>
-        <div class="categories-container">
+        <div class="container categories-container">
             <h1>Categories</h1>
             <ul>
                 {% for product in all %}
-                    <li>{{ product }}</li>
+                    <li>{{ product.category }}</li>
                 {% endfor %}
             </ul>
         </div>
 
-        <div class="products-container">
+        <div class="container products-container">
             <h1>Products</h1>
             <table>
                 <thead>
@@ -32,7 +32,7 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>View</th>
+                        <th>Category</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,9 +41,8 @@
                             <tr>
                                 <td>{{ product.id }}</td>
                                 <td>{{ product.product_name }}</td>
-                                <td>${{ product.price }}</td>
+                                <td>$ {{ product.price }}</td>
                                 <td>{{ product.quantity }}</td>
-                                <td>{{ product.inventory }}</td>
                                 <td>{{ product.category }}</td>
                                 <td>
                                     <form method="POST" action="{{ url_for('login_page') }}">
