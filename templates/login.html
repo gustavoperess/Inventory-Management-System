@@ -9,9 +9,8 @@
         <h1>IMG</h1>
         <h1>Welcome back {{ user.username.title() }}</h1>
         <nav>
-            <a href="{{ url_for('add_item') }}">+</a>
+            <a href="{{ url_for('add_item') }}">Add Inventory</a>
         </nav>
-        <button onclick="location.href='{{ url_for('add_item') }}'">Add Inventory</button>
     </header>
 
     <main>
