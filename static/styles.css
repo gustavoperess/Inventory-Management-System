@@ -1,144 +1,64 @@
-/* styles.css */
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #333;
-    margin-bottom: 20px; /* Added margin-bottom */
-  }
-  
-  form {
-    max-width: 300px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  input[type="text"],
-  input[type="password"],
-  input[type="submit"] {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 8px 0;
-    padding: 10px;
-  }
-  
-  input[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
-  form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    font-size: 1.2em; /* Increase font size */
-    height: 150px; /* Adjust height as needed */
-    resize: vertical; /* Allow vertical resizing */
-  }
-  
-  
-  
-  ul.flashes {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    color: #a94442;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #337ab7;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  a.register-link {
-    display: block;
-    margin-top: 20px;
-    color: #337ab7;
-  }
-  
-  a.register-link:hover {
-    text-decoration: underline;
-  }
-  
-  .post-container {
-    position: relative;
-    margin: 20px auto;
-    max-width: 600px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-  
-  
-  .post-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .post-content {
-    font-size: 1.2em;
-    line-height: 1.4;
-  }
-  
-  a.logout-link {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #337ab7;
-    text-decoration: none;
-  }
-  
-  a.logout-link:hover {
-    text-decoration: underline;
-  }
-  
-  .user-name {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    color: #337ab7;
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  
-  .post-username {
-    font-size: 0.8em; /* Adjust font size */
-    color: #337ab7;
-    font-weight: bold;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-  }
-  
-  .post-time {
-    font-size: 0.8em; /* Adjust font size */
-    color: #337ab7;
-    font-weight: bold;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.categories-container {
+  width: 30%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.products-container {
+  width: 65%;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.logout-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.logout-link:hover {
+  background-color: #fff;
+  color: #333;
+}

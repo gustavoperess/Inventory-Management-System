@@ -5,24 +5,61 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>IMG</h1>
-    <h1 >Welcome back {{ user.username.title() }}</h1>
-    
-    <a href="{{url_for('add_item')}}" >+</a>
+    <header>
+        <h1>IMG</h1>
+        <h1>Welcome back {{ user.username.title() }}</h1>
+        <nav>
+            <a href="{{ url_for('add_item') }}">+</a>
+        </nav>
+        <button onclick="location.href='{{ url_for('add_item') }}'">Add Inventory</button>
+    </header>
 
-    {% for product in all %}
-        {% if product.user_id == user.id %}
-        <li> {{product.id}} {{product.product_name}} {{product.quantity}} {{product.category}}</li>
-        <form method="POST" action="/login">
-            <input type="hidden" name="delete_post" value="{{ product.id }}">
-            <input type="submit" value="Delete">
-        </form>
-        {% endif %}
-    {% endfor %}
-   
+    <main>
+        <div class="categories-container">
+            <h1>Categories</h1>
+            <ul>
+                {% for product in all %}
+                    <li>{{ product.category }}</li>
+                {% endfor %}
+            </ul>
+        </div>
 
+        <div class="products-container">
+            <h1>Products</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Unit</th>
+                        <th>Inventory</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in all %}
+                        {% if product.user_id == user.id %} 
+                            <tr>
+                                <td>{{ product.product_name }}</td>
+                                <td>{{ product.price }}</td>
+                                <td>{{ product.unit }}</td>
+                                <td>{{ product.inventory }}</td>
+                                <td>
+                                    <form method="POST" action="{{ url_for('login_page') }}">
+                                        <input type="hidden" name="delete_post" value="{{ product.id }}">
+                                        <input type="submit" value="Delete">
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
 
-
-<a href="{{url_for('main_page')}}" class="logout-link">Log out</a>
+    <footer>
+        <a href="{{ url_for('main_page') }}" class="logout-link">Log out</a>
+    </footer>
 </body>
 </html>
