@@ -8,7 +8,7 @@ class ProductRepository:
         rows = self._connection.execute('SELECT * from products')
         products = []
         for row in rows:
-            product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['user_id'])
+            product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
             products.append(product)
         return products
     
@@ -19,14 +19,14 @@ class ProductRepository:
         
         if rows:
             row = rows[0]
-            return Product(row['id'], row['product_name'], row['quantity'], row['category'], row['user_id'])
+            return Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
         else:
             return None
 
     
     def create(self, product):
-        rows = self._connection.execute('INSERT INTO products (product_name, quantity, category, user_id) VALUES (%s, %s, %s, %s) RETURNING id', [
-                                        product.product_name, product.quantity, product.category, product.user_id])
+        rows = self._connection.execute('INSERT INTO products (product_name, quantity, category, price, user_id) VALUES (%s, %s, %s, %s, %s) RETURNING id', [
+                                        product.product_name, product.quantity, product.category, product.price, product.user_id])
         
         row = rows[0]
         product.id = self._generate_next_id()

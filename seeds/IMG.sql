@@ -28,6 +28,7 @@ CREATE TABLE products (
     product_name VARCHAR(255),
     quantity INT,
     category VARCHAR(255),
+    price NUMERIC(10, 2),
     user_id INT,
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users (id)
 );
@@ -37,6 +38,6 @@ INSERT INTO users (username, password, email) VALUES ('Gustavo', 'gustavo123', '
 INSERT INTO users (username, password, email) VALUES ('Ashley', 'ashley123', 'ashley123@gmail.com');
 INSERT INTO users (username, password, email) VALUES ('Mario', 'mario123', 'mario123@gmail.com');
 INSERT INTO users (username, password, email) VALUES ('Rosangela', 'rosangela123', 'rosangela123@gmail.com');
-INSERT INTO products (product_name, quantity, category, user_id) VALUES ('milk', 5, 'dairy',  1);
-INSERT INTO products (product_name, quantity, category, user_id) VALUES ('eggs', 3,  'dairy',  1);
-INSERT INTO products (product_name, quantity, category, user_id) VALUES ('lettuce', 1, 'vegetables',  2);
+INSERT INTO products (product_name, quantity, category, price, user_id) VALUES ('milk', 5, 'dairy', 2.55, 1);
+INSERT INTO products (product_name, quantity, category, price, user_id) VALUES ('eggs', 3,  'dairy', 3.55,  1);
+INSERT INTO products (product_name, quantity, category, price, user_id) VALUES ('lettuce', 1, 'vegetables', 4.55,  2);
