@@ -1,3 +1,5 @@
+/* styles.css */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -17,12 +19,12 @@ main {
   padding: 20px;
 }
 
-.categories-container,
-.products-container {
+.container {
   width: 20%;
   background-color: #f0f0f0;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: auto; /* Add this line to center the container */
 }
 
 .container ul li {
@@ -31,20 +33,67 @@ main {
   padding: 10px;
 }
 
-.products-container {
-  width: 65%;
-  background-color: #fff;
+.container input[type="text"],
+.container input[type="password"] {
+  width: 100%;
   padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px; /* Adjust the font size as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.products-container {
+  width: 75%;
+  background-color: #fff;
+  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.products-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-li {
+.products-container th,
+.products-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.products-container th {
+  background-color: #f2f2f2;
+}
+
+.products-container td {
+  font-size: 14px;
+}
+
+.products-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.products-container input {
   margin-bottom: 10px;
+}
+
+.products-container input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.products-container input[type="submit"]:hover {
+  background-color: #45a049;
 }
 
 footer {
@@ -82,57 +131,4 @@ nav a {
 
 nav a:hover {
   background-color: #45a049;
-}
-
-
-/* Add these styles to your existing CSS */
-.container.products-container {
-  width: 75%;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.container.products-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.container.products-container th,
-.container.products-container td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.container.products-container th {
-  background-color: #f2f2f2;
-}
-
-.container.products-container td {
-  font-size: 14px;
-}
-
-.container.products-container form {
-  display: inline-block;
-  margin-top: 5px;
-}
-
-.container.products-container input[type="submit"] {
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.container.products-container input[type="submit"]:hover {
-  background-color: #c82333;
-}
-
-/* Optional: Add some space between table rows */
-.container.products-container tbody tr {
-  margin-bottom: 10px;
 }
