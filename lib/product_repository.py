@@ -12,6 +12,28 @@ class ProductRepository:
             products.append(product)
         return products
     
+    def product_count(self):
+        rows = self._connection.execute('SELECT * from products')
+        products = []
+        for row in rows:
+            product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+            products.append(product)
+        
+        result = {}
+
+        for product in products:
+            category = product.category
+            price = product.price
+
+            if category in result:
+                result[category]['category_count'] += 1
+                result[category]['price'] += price
+
+            else:
+                result[category] = {'category_count': 1, 'price': price}
+
+        return result
+        
         
     def find(self, product_id):
         rows = self._connection.execute(

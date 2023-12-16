@@ -69,7 +69,7 @@ def login_page():
     
     all = product_repository.all()
     all_users = user_repository.all()
-    
+    product_count = product_repository.product_count()
 
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
@@ -79,7 +79,7 @@ def login_page():
         
         return redirect(url_for('login_page'))
                
-    return render_template('login.html', user=current_user, all=all, all_users=all_users)
+    return render_template('login.html', user=current_user, all=all, all_users=all_users, product_count=product_count)
     
 
 

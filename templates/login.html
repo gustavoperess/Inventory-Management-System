@@ -18,8 +18,8 @@
         <div class="container categories-container">
             <h1>Categories</h1>
             <ul>
-                {% for product in all %}
-                    <li>{{ product.category }}</li>
+                {% for product, value in product_count.items() %}
+                    <li>{{ product }} {{ value['category_count'] }} {{ value['price']}}</li>
                 {% endfor %}
             </ul>
         </div>
