@@ -20,7 +20,7 @@
                 <ul>
                     {% for product, value in product_count.items() %}
                         {% if value['user_id'] == user.id %}
-                        <li>{{ product }}  $ {{ value['price']}}  {{ value['category_count'] }}</li>
+                        <li>{{ product }}  $ {{ value['price']}}  {{value['quantity'] }}  </li>
                         {% endif %}
                     {% endfor %}
                 </ul>

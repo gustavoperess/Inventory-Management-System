@@ -26,13 +26,16 @@ class ProductRepository:
                 category = product.category
                 price = product.price 
                 user_id = product.user_id
-          
+                total_quantity = product.quantity
+        
+                
                 if category in result:
+                    result[category]['quantity'] += int(total_quantity)
                     result[category]['category_count'] += 1
                     result[category]['price'] += price 
                     result[category]['user_id'] = user_id
                 else:
-                    result[category] = {'category_count': 1, 'price': price, 'user_id': user_id}
+                    result[category] = {'category_count': 1, 'price': price, 'user_id': user_id, 'quantity': total_quantity}
       
    
         return result
