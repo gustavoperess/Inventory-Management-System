@@ -70,8 +70,6 @@ def login_page():
     all = product_repository.all()
     all_users = user_repository.all()
     
-    if not current_user.products:
-        flash("User does not have any posts yet")
 
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
