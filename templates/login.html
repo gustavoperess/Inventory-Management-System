@@ -19,7 +19,7 @@
             <h1>Categories</h1>
             <ul>
                 {% for product, value in product_count.items() %}
-                    <li>{{ product }} {{ value['category_count'] }} {{ value['price']}}</li>
+                    <li>{{ product }}  $ {{ value['price']}}  {{ value['category_count'] }}</li>
                 {% endfor %}
             </ul>
         </div>
