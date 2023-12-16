@@ -23,14 +23,15 @@ class ProductRepository:
 
         for product in products:
             category = product.category
-            price = product.price
-
+            price = product.price * product.quantity
+            user_id = product.user_id
+            
             if category in result:
                 result[category]['category_count'] += 1
                 result[category]['price'] += price
-
+                result[category]['user_id'] = user_id
             else:
-                result[category] = {'category_count': 1, 'price': price}
+                result[category] = {'category_count': 1, 'price': price, 'user_id': user_id}
 
         return result
         

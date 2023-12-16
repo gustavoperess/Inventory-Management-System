@@ -17,13 +17,14 @@
         
         <div class="container categories-container">
             <h1>Categories</h1>
-            <ul>
-                {% for product, value in product_count.items() %}
-                    <li>{{ product }}  $ {{ value['price']}}  {{ value['category_count'] }}</li>
-                {% endfor %}
-            </ul>
+                <ul>
+                    {% for product, value in product_count.items() %}
+                        {% if value['user_id'] == user.id %}
+                        <li>{{ product }}  $ {{ value['price']}}  {{ value['category_count'] }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
         </div>
-
         <div class="container products-container">
             <h1>Products</h1>
             <table>
