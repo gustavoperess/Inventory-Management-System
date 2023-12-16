@@ -87,11 +87,9 @@ def login_page():
 @login_required
 def add_item():
     add_form = AddProductForm()
-    print(f"BEFORE {add_form.category}")
     if add_form.validate_on_submit():
         connection = get_flask_database_connection(app)
         product = ProductRepository(connection)
-        print(f"AFTER {add_form.product_name.data}, {add_form.quantity.data}, {add_form.category.data}, {add_form.price.data} , {current_user.id}")
         new_product = Product(None, add_form.product_name.data, add_form.quantity.data, add_form.category.data, add_form.price.data , current_user.id)
         product.create(new_product)
     return render_template('add_item.html', form=add_form)

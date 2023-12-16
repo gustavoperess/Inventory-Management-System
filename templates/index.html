@@ -30,8 +30,9 @@
                 <label for="username">Username:</label>{{ form.username }}</br>
                 <label for="password">Password:</label>{{ form.password }}</br>
                 <nav>
-                  <a href="{{ url_for('register_page') }}">Sign up</a>{{ form.submit }}
-              </nav>
+                  {{ form.submit(class="styled-button") }}
+                  <a class="styled-button" href="{{ url_for('register_page') }}">Sign up</a>
+               </nav>
             </form>
         </div>
     </main>
