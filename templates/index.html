@@ -9,9 +9,7 @@
         <h1>IMG</h1>
         <h1>Welcome to IMG</h1>
         <h2>Please enter your user name and password or create a new account</h2>
-        <nav>
-            <a href="{{ url_for('register_page') }}">Sign up</a>
-        </nav>
+  
     </header>
 
     <main>
@@ -31,7 +29,9 @@
                 {{ form.csrf_token }}
                 <label for="username">Username:</label>{{ form.username }}</br>
                 <label for="password">Password:</label>{{ form.password }}</br>
-                {{ form.submit }}
+                <nav>
+                  <a href="{{ url_for('register_page') }}">Sign up</a>{{ form.submit }}
+              </nav>
             </form>
         </div>
     </main>

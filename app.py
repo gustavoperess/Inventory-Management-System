@@ -45,11 +45,16 @@ def main_page():
         connection = get_flask_database_connection(app)
         repository = UserRepository(connection)
         user = repository.find_by_name(form.username.data)
-        if user and bcrypt.check_password_hash(user.password.encode('utf-8'), form.password.data.encode('utf-8')):   
+        if user is None:
+            flash("User not in the system")
+        
+        elif not bcrypt.check_password_hash(user.password.encode('utf-8'), form.password.data.encode('utf-8')):
+            flash("Password is incorrect")
+        
+        elif user and bcrypt.check_password_hash(user.password.encode('utf-8'), form.password.data.encode('utf-8')):   
                 login_user(user)      
                 return redirect(url_for('login_page'))
-        else:
-            flash("User not in the system")
+            
     return render_template('index.html', form=form)
 
 
