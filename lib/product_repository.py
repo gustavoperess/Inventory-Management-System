@@ -12,7 +12,7 @@ class ProductRepository:
             products.append(product)
         return products
     
-    def product_count(self):
+    def product_count(self, current_user):
         rows = self._connection.execute('SELECT * from products')
         products = []
         for row in rows:
@@ -20,19 +20,21 @@ class ProductRepository:
             products.append(product)
         
         result = {}
-
+        
         for product in products:
-            category = product.category
-            price = product.price * product.quantity
-            user_id = product.user_id
-            
-            if category in result:
-                result[category]['category_count'] += 1
-                result[category]['price'] += price
-                result[category]['user_id'] = user_id
-            else:
-                result[category] = {'category_count': 1, 'price': price, 'user_id': user_id}
-
+            if current_user == product.user_id:
+                category = product.category
+                price = product.price 
+                user_id = product.user_id
+          
+                if category in result:
+                    result[category]['category_count'] += 1
+                    result[category]['price'] += price 
+                    result[category]['user_id'] = user_id
+                else:
+                    result[category] = {'category_count': 1, 'price': price, 'user_id': user_id}
+      
+   
         return result
         
         

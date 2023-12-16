@@ -10,7 +10,7 @@
       {{ form.csrf_token }}
       {{ form.hidden_tag() }}
       {{ form.product_name }}<br>
-      {{ form.price(min=1) }}<br>
+      {{ form.price(min=0) }}<br>
       {{ form.quantity(min=1) }}<br>
       {{ form.category }}<br>
       {{ form.submit }}

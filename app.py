@@ -69,7 +69,7 @@ def login_page():
     
     all = product_repository.all()
     all_users = user_repository.all()
-    product_count = product_repository.product_count()
+    product_count = product_repository.product_count(current_user.id)
 
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
