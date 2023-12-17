@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Head section with the title and link to the external CSS file for styling -->
     <title>IMG add page</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body>
+</head>
+<body>
     <!-- Body section -->
 
-    <!-- Add Item form -->
-    <h1>Add Item</h1>
-    <form method="POST" action="">
-      <!-- CSRF protection tokens for security -->
-      {{ form.csrf_token }}
-      {{ form.hidden_tag() }}
-      
-      <!-- Form fields for product_name, price, quantity, category, and submit button -->
-      {{ form.product_name }}<br>
-      {{ form.price(min=0) }}<br>
-      {{ form.quantity(min=1) }}<br>
-      {{ form.category }}<br>
-      {{ form.submit }}
-    </form>
-    
-    <!-- Link to navigate back to the login page -->
-    <a  href="{{ url_for('login_page') }}">back to login page</a>
-  </body>
-  <footer>
-  </footer>
+    <!-- Header section -->
+    <header>
+        <div class="logo-container">
+            <h1 class="logo-heading">IMG</h1>
+        </div>
+        <div class="actions-container">
+            <h2>Please enter your user name and password or create a new account</h2>
+            <h1>Welcome to IMG</h1>
+        </div>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <!-- Add Item form -->
+        <div class="container">
+            <h1>Add Item</h1>
+            <form method="POST" action="">
+                <!-- CSRF protection tokens for security -->
+                {{ form.csrf_token }}
+                {{ form.hidden_tag() }}
+
+                <!-- Form fields for product_name, price, quantity, category, and submit button -->
+                {{ form.product_name }}<br>
+                {{ form.price(min=0) }}<br>
+                {{ form.quantity(min=1) }}<br>
+                {{ form.category }}<br>
+                {{ form.submit }}
+            </form>
+            
+            <!-- Link to navigate back to the login page -->
+            <a href="{{ url_for('login_page') }}">back to login page</a>
+        </div>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+    </footer>
+</body>
 </html>
