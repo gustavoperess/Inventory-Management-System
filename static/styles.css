@@ -27,6 +27,8 @@ main {
   margin: auto; /* Add this line to center the container */
 }
 
+
+
 .container ul li {
   list-style: none;
   border-bottom: 1px solid #ccc;
@@ -38,7 +40,7 @@ main {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  font-size: 16px; /* Adjust the font size as needed */
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
@@ -135,4 +137,36 @@ nav .styled-button {
 
 nav .styled-button:hover {
   background-color: #45a049;
+}
+
+.container.categories-container {
+  width: 30%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-right: 20px; /* Keep the margin-right for spacing */
+  height: 100%; /* Set a fixed height for the container */
+  overflow-y: auto; /* Add a vertical scrollbar if needed */
+}
+
+.container.categories-container h1 {
+  margin-bottom: 10px;
+}
+
+.container.categories-container ul {
+  padding: 0;
+}
+
+.container.categories-container li {
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.container.products-container {
+  flex: 2;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

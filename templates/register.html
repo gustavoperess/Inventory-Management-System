@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Head section with the title and link to the external CSS file for styling -->
     <title>IMG register page</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
+    <!-- Body section -->
+
+    <!-- Registration form -->
     <h1>Register</h1>
     <form method="POST" action="">
       
+      <!-- CSRF protection tokens for security -->
       {{ form.hidden_tag() }}
+      
+      <!-- Form fields for username, password, email, and submit button -->
       {{ form.username }}<br>
       {{ form.password }}<br>
       {{ form.email }}<br>
       {{ form.submit }} <br>
     </form>
+
+    <!-- Link to the login page for users who already have an account -->
     <a class="register-link" href="{{ url_for('main_page') }}">Already have an account? Log In</a>
   </body>
 </html>

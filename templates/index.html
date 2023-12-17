@@ -2,19 +2,23 @@
 <html lang="en">
 <head>
     <title>Chitter Main Page</title>
+    <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
+        <!-- Page header with a title and welcome message -->
         <h1>IMG</h1>
         <h1>Welcome to IMG</h1>
         <h2>Please enter your user name and password or create a new account</h2>
-  
     </header>
 
     <main>
+        <!-- Main content section -->
         <div class="container">
+            <!-- Form for user login -->
             <form method="POST" action="">
+                <!-- Display flashed messages, typically used for displaying form validation errors or notifications -->
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         <ul class="flashes">
@@ -25,14 +29,19 @@
                     {% endif %}
                 {% endwith %}
 
+                <!-- CSRF protection tokens for security -->
                 {{ form.hidden_tag() }}
                 {{ form.csrf_token }}
+                
+                <!-- Form fields for username and password -->
                 <label for="username">Username:</label>{{ form.username }}</br>
                 <label for="password">Password:</label>{{ form.password }}</br>
+                
+                <!-- Navigation section with a submit button and a link to the registration page -->
                 <nav>
-                  {{ form.submit(class="styled-button") }}
-                  <a class="styled-button" href="{{ url_for('register_page') }}">Sign up</a>
-               </nav>
+                    {{ form.submit(class="styled-button") }}
+                    <a class="styled-button" href="{{ url_for('register_page') }}">Sign up</a>
+                </nav>
             </form>
         </div>
     </main>

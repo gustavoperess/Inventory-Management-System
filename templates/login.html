@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <title>Chitter Login page</title>
+    <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
+        <!-- Page header with a title, welcome back message, and navigation link -->
         <h1>IMG</h1>
         <h1>Welcome back {{ user.username.title() }}</h1>
         <nav>
@@ -14,17 +16,22 @@
     </header>
 
     <main>
-        
+        <!-- Main content section -->
+
+        <!-- Container for displaying inventory categories -->
         <div class="container categories-container">
             <h1>Categories</h1>
-                <ul>
-                    {% for product, value in product_count.items() %}
-                        {% if value['user_id'] == user.id %}
-                        <li>{{ product }}  $ {{ value['price']}}  {{value['quantity'] }}  </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+            <ul>
+                <!-- Loop through product_count items and display relevant information -->
+                {% for product, value in product_count.items() %}
+                    {% if value['user_id'] == user.id %}
+                    <li>{{ product }} $ {{ value['price']}} {{value['quantity'] }} </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         </div>
+
+        <!-- Container for displaying a table of products -->
         <div class="container products-container">
             <h1>Products</h1>
             <table>
@@ -38,6 +45,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Loop through all products and display relevant information -->
                     {% for product in all %}
                         {% if product.user_id == user.id %} 
                             <tr>
@@ -47,6 +55,7 @@
                                 <td>{{ product.quantity }}</td>
                                 <td>{{ product.category }}</td>
                                 <td>
+                                    <!-- Form for deleting a product -->
                                     <form method="POST" action="{{ url_for('login_page') }}">
                                         <input type="hidden" name="delete_post" value="{{ product.id }}">
                                         <input type="submit" value="Delete">
@@ -61,6 +70,7 @@
     </main>
 
     <footer>
+        <!-- Logout link -->
         <a href="{{ url_for('main_page') }}" class="logout-link">Log out</a>
     </footer>
 </body>

@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Head section with the title and link to the external CSS file for styling -->
     <title>IMG add page</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
+    <!-- Body section -->
+
+    <!-- Add Item form -->
     <h1>Add Item</h1>
     <form method="POST" action="">
+      <!-- CSRF protection tokens for security -->
       {{ form.csrf_token }}
       {{ form.hidden_tag() }}
+      
+      <!-- Form fields for product_name, price, quantity, category, and submit button -->
       {{ form.product_name }}<br>
       {{ form.price(min=0) }}<br>
       {{ form.quantity(min=1) }}<br>
       {{ form.category }}<br>
       {{ form.submit }}
     </form>
+    
+    <!-- Link to navigate back to the login page -->
     <a  href="{{ url_for('login_page') }}">back to login page</a>
   </body>
 </html>
