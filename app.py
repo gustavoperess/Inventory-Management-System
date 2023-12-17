@@ -67,7 +67,6 @@ def login_page():
     product_repository = ProductRepository(connection)
     user_repository = UserRepository(connection)
     
-    all = product_repository.all()
     all_users = user_repository.all()
     product_count = product_repository.product_count(current_user.id)
     
@@ -88,7 +87,7 @@ def login_page():
         
         return redirect(url_for('login_page'))
     
-    return render_template('login.html', user=current_user, all=all, all_users=all_users, product_count=product_count, form=form, filter_by_products=filter_by_products)
+    return render_template('login.html', user=current_user, all_users=all_users, product_count=product_count, form=form, filter_by_products=filter_by_products)
     
 
 
