@@ -8,13 +8,19 @@
 </head>
 <body>
     <header>
-        <!-- Page header with a title, welcome back message, and navigation link -->
-        <h1>IMG</h1>
-        <h1>Welcome back {{ user.username.title() }}</h1>
-        <nav>
-            <a class="logout-button" href="{{ url_for('main_page') }}">Log out</a>
-            <a class="add-inventory-button" href="{{ url_for('add_item') }}">Add Inventory</a>
-        </nav>
+        <div class="logo-container">
+            <h1 class="logo-heading">IMG</h1>
+            <nav>
+                <a class="logout-button" href="{{ url_for('main_page') }}">Log out</a>
+            </nav>
+        </div>
+        <div class="actions-container">
+            <h1 class="dashboard-heading">Dashboard</h1>
+            <h1 class="user-heading">Welcome back {{ user.username.title() }}</h1>
+            <nav>
+                <a class="add-inventory-button" href="{{ url_for('add_item') }}">Add Inventory</a>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -72,8 +78,6 @@
     </main>
 
     <footer>
-        <!-- Logout link -->
-        <a href="{{ url_for('main_page') }}" class="logout-link">Log out</a>
     </footer>
 </body>
 </html>
