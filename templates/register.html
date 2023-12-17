@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Head section with the title and link to the external CSS file for styling -->
+<head>
     <title>IMG register page</title>
+    <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body>
+</head>
+<body>
     <!-- Body section -->
 
-    <!-- Registration form -->
-    <h1>Register</h1>
-    <form method="POST" action="">
-      
-      <!-- CSRF protection tokens for security -->
-      {{ form.hidden_tag() }}
-      
-      <!-- Form fields for username, password, email, and submit button -->
-      {{ form.username }}<br>
-      {{ form.password }}<br>
-      {{ form.email }}<br>
-      {{ form.submit }} <br>
-    </form>
+    <!-- Header section similar to other pages -->
+    <header>
+        <h1>IMG</h1>
+        <h1>Register</h1>
+    </header>
 
-    <!-- Link to the login page for users who already have an account -->
-    <a class="register-link" href="{{ url_for('main_page') }}">Already have an account? Log In</a>
-  </body>
-  <footer>
-  </footer>
+    <!-- Registration form similar to other pages -->
+    <div class="container">
+      <form method="POST" action="">
+          {{ form.csrf_token }}
+          {{ form.hidden_tag() }}
+          {{ form.username }}<br>
+          {{ form.password }}<br>
+          {{ form.email }}<br>
+        <nav>
+          {{ form.submit(class="styled-button") }}
+          <!-- Link to navigate back similar to other pages -->
+          <a class="styled-button" href="{{ url_for('main_page') }}">Already have an account? Log In</a>
+        </nav>
+      </form>
+    </div>
+    <!-- Footer section similar to other pages -->
+    <footer>
+    </footer>
+</body>
 </html>
