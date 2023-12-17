@@ -17,7 +17,7 @@ class ProductRepository:
             products.append(product)
         return products
     
-    
+     # Filter  products from the database and return them in order ASC or DESC 
     def filter_by(self, filter):
         products = []
         if filter == "Price: High to Low":
@@ -53,16 +53,6 @@ class ProductRepository:
      
         return products
                 
-            
-            
-            
-            
-            
-            
-            
-    
-    
-    
     # Calculate and return aggregated information about the products for a specific user
     def product_count(self, current_user):
         rows = self._connection.execute('SELECT * from products')
