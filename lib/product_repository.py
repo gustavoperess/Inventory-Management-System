@@ -17,6 +17,52 @@ class ProductRepository:
             products.append(product)
         return products
     
+    
+    def filter_by(self, filter):
+        products = []
+        if filter == "Price: High to Low":
+            rows = self._connection.execute('SELECT * from products ORDER BY price DESC')
+            for row in rows:
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                products.append(product)
+        elif filter == "Price: Low to High":
+            rows = self._connection.execute('SELECT * from products ORDER BY price ASC')
+            for row in rows:
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                products.append(product)
+        elif filter == "Category":
+            rows = self._connection.execute('SELECT * from products ORDER BY category ASC')
+            for row in rows:
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                products.append(product)
+        elif filter == "Name":
+            rows = self._connection.execute('SELECT * from products ORDER BY product_name ASC')
+            for row in rows:
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                products.append(product)
+        elif filter == "First Added":
+            rows = self._connection.execute('SELECT * from products ORDER BY id ASC')
+            for row in rows:
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                products.append(product)
+        elif filter == "Last Added":
+            rows = self._connection.execute('SELECT * from products ORDER BY id DESC')
+            for row in rows:
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                products.append(product)
+     
+        return products
+                
+            
+            
+            
+            
+            
+            
+            
+    
+    
+    
     # Calculate and return aggregated information about the products for a specific user
     def product_count(self, current_user):
         rows = self._connection.execute('SELECT * from products')

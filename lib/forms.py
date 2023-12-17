@@ -17,6 +17,15 @@ category_names = [
     ]
 
 
+dropdowchoises = [
+        ('First Added', 'First Added'),
+        ('Last Added', 'Last Added'),
+        ('Price: Low to High', 'Price: Low to High'),
+        ('Price: High to Low', 'Price: High to Low'),
+        ('Category', 'Category'),
+        ('Name', 'Name'),
+    ]
+
 
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
@@ -36,5 +45,5 @@ class AddProductForm(FlaskForm):
     category = SelectField('Grocery Products', choices=category_names)
     submit = SubmitField('Add')
     
-    
-
+class Filters(FlaskForm):
+    selected_filter = SelectField('Sort by:', choices=dropdowchoises)

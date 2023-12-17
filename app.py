@@ -6,7 +6,7 @@ from lib.product_repository import ProductRepository
 from lib.product import Product
 from flask_login import login_user, LoginManager, login_required, logout_user, current_user
 from lib.user import User
-from lib.forms import LoginForm, RegisterForm, AddProductForm
+from lib.forms import LoginForm, RegisterForm, AddProductForm, Filters, dropdowchoises
 from flask_bcrypt import Bcrypt
 
 
@@ -70,16 +70,25 @@ def login_page():
     all = product_repository.all()
     all_users = user_repository.all()
     product_count = product_repository.product_count(current_user.id)
+    
+    form = Filters()
+    filter_by_products = None
+    if filter_by_products is None:
+        default_filter = "First Added" 
+        filter_by_products = product_repository.filter_by(default_filter)
+    
+    if form.validate_on_submit():
+        selected_filter = form.selected_filter.data
+        filter_by_products = product_repository.filter_by(selected_filter)
+        
 
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
-        connection = get_flask_database_connection(app)
-        new_repo = ProductRepository(connection)
-        new_repo.delete(product_id_to_delete)
+        product_repository.delete(product_id_to_delete)
         
         return redirect(url_for('login_page'))
-               
-    return render_template('login.html', user=current_user, all=all, all_users=all_users, product_count=product_count)
+    
+    return render_template('login.html', user=current_user, all=all, all_users=all_users, product_count=product_count, form=form, filter_by_products=filter_by_products)
     
 
 

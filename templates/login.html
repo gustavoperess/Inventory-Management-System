@@ -43,7 +43,14 @@
         <div class="container products-container">
             <h1>Products</h1>
             <table>
-                <thead>
+                <thead>               
+                    <form method="POST" action="" id="filterForm">
+                        {{ form.csrf_token }}
+                        {{ form.hidden_tag() }}
+                        {{ form.selected_filter }}
+                        <input type="submit" value="Apply Filter">
+                    </form>
+                      <nav>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
@@ -54,7 +61,8 @@
                 </thead>
                 <tbody>
                     <!-- Loop through all products and display relevant information -->
-                    {% for product in all %}
+                    
+                    {% for product in filter_by_products %}
                         {% if product.user_id == user.id %} 
                             <tr>
                                 <td>{{ product.id }}</td>
