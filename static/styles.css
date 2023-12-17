@@ -65,7 +65,8 @@ main {
 
 .container input[type="text"],
 .container input[type="password"],
-.container input[type="email"] {
+.container input[type="email"],
+.container input[type="number"]  {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
