@@ -113,30 +113,64 @@ footer {
   width: 100%;
 }
 
-.logout-link {
+.logout-button {
   color: #fff;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 8px 14px; /* Adjust padding to make it slightly bigger */
   border: 1px solid #fff;
   border-radius: 5px;
 }
 
-.logout-link:hover {
+/* Apply the new class to the logout button */
+header .logout-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px; /* Adjust padding to make it slightly bigger */
+  border: 1px solid #fff;
+  border-radius: 5px;
+  position: fixed; /* Use fixed positioning */
+  top: 5px; /* Position a bit below the top */
+  right: 30px; /* Adjust the right value to move it more to the left */
+}
+
+/* Add hover effect for the logout button */
+.logout-button:hover {
   background-color: #fff;
   color: #333;
 }
 
-nav .styled-button {
-  display: inline-block;
+/* Add a new class for styling login button */
+.styled-login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px 20px;
   margin: 10px;
   background-color: #4CAF50;
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-nav .styled-button:hover {
+/* Apply the new class to the login button */
+nav .styled-button,
+nav .styled-login-button,
+nav .styled-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav .styled-button:hover,
+nav .styled-login-button:hover {
   background-color: #45a049;
 }
 
@@ -170,4 +204,31 @@ nav .styled-button:hover {
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Add a new class for styling the "Add Inventory" button */
+.add-inventory-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px; /* Adjust padding as needed */
+  margin: 10px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 120px; /* Adjust the width as needed */
+}
+
+/* Apply the new class to the "Add Inventory" button */
+header .add-inventory-button {
+  padding: 8px 16px; /* Adjust padding to your preference */
+}
+
+/* Add hover effect for the "Add Inventory" button */
+.add-inventory-button:hover {
+  background-color: #45a049;
 }

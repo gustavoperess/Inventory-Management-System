@@ -37,10 +37,10 @@
                 <label for="username">Username:</label>{{ form.username }}</br>
                 <label for="password">Password:</label>{{ form.password }}</br>
                 
-                <!-- Navigation section with a submit button and a link to the registration page -->
+                <!-- Navigation section with a submit button and a styled link to the registration page -->
                 <nav>
-                    {{ form.submit(class="styled-button") }}
-                    <a class="styled-button" href="{{ url_for('register_page') }}">Sign up</a>
+                    {{ form.submit(class="styled-link") }}
+                    <a class="styled-link" href="{{ url_for('register_page') }}">Sign up</a>
                 </nav>
             </form>
         </div>
