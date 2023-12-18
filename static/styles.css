@@ -90,6 +90,7 @@ header .logout-button {
 /* Container for displaying inventory categories */
 .categories-container {
   width: 25%;
+  margin-right: 20px;
   /* Adjust the width as needed */
   background-color: #f0f0f0;
   padding: 10px;
@@ -131,6 +132,7 @@ header .logout-button {
 /* Container for displaying a table of products */
 .products-container {
   width: 75%;
+  margin-right: 20px;
   /* Adjust the width as needed */
   background-color: #fff;
   padding: 20px;
@@ -174,7 +176,8 @@ header .logout-button {
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 2px 15px;
+  margin-left: 3px;
+  padding: 1px 15px;
   border-radius: 5px;
   cursor: pointer;
 }
