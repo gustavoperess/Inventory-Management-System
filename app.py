@@ -6,8 +6,10 @@ from lib.product_repository import ProductRepository
 from lib.product import Product
 from flask_login import login_user, LoginManager, login_required, logout_user, current_user
 from lib.user import User
-from lib.forms import LoginForm, RegisterForm, AddProductForm, Filters, dropdowchoises
+from lib.forms import LoginForm, RegisterForm, AddProductForm, Filters
 from flask_bcrypt import Bcrypt
+from flask_paginate import Pagination, get_page_args
+
 
 
 app = Flask(__name__, static_url_path='/static')
@@ -84,10 +86,17 @@ def login_page():
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
         product_repository.delete(product_id_to_delete)
-        
         return redirect(url_for('login_page'))
     
-    return render_template('login.html', user=current_user, all_users=all_users, product_count=product_count, form=form, filter_by_products=filter_by_products)
+    page, per_page, offset= get_page_args()
+    total = len(filter_by_products)
+    pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap4')
+    paginated_products = filter_by_products[offset: offset + per_page]
+
+    
+    return render_template('login.html', user=current_user, all_users=all_users,
+                           product_count=product_count, form=form,
+                           filter_by_products=paginated_products, pagination=pagination)
     
 
 
