@@ -16,6 +16,7 @@ pytest-xprocess = "*"
 flask-bcrypt = "*"
 flask-wtf = "*"
 flask-paginate = "*"
+openai = "*"
 
 [dev-packages]
 

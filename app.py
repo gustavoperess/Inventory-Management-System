@@ -9,12 +9,13 @@ from lib.user import User
 from lib.forms import LoginForm, RegisterForm, AddProductForm, Filters
 from flask_bcrypt import Bcrypt
 from flask_paginate import Pagination, get_page_args
+from lib.api import API_KEY
 
 
 
 app = Flask(__name__, static_url_path='/static')
 bcrypt = Bcrypt(app)
-app.config['SECRET_KEY'] = 'thisisasecretkey'
+app.config['SECRET_KEY'] = API_KEY().database
 
 
 login_manager = LoginManager()
@@ -147,4 +148,5 @@ def register_page():
     
 if __name__ == '__main__':
     app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
-    
+
+
