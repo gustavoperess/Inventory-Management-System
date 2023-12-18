@@ -71,11 +71,6 @@ def login_page():
     product_count = product_repository.product_count(current_user.id)
     
     form = Filters()
-    i = 44
-    for subchoice in form.selected_filter:
-     print(subchoice(**{'data-id': i}))
-     i += 1
-    
     filter_by_products = None
     if filter_by_products is None:
         default_filter = "First Added" 

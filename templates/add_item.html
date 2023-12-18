@@ -34,12 +34,10 @@
                 {{ form.price(min=0) }}<br>
                 {{ form.quantity(min=1) }}<br>
                 {{ form.category(class="container-dropdown") }}<br>
-                {{ form.submit }}
+                {{ form.submit(class="green-button") }}
             </form>
-            <nav>
             <!-- Link to navigate back to dashnoard -->
-            <a class="styled-button"  href="{{ url_for('login_page') }}">back to dashboard</a>
-            </nav>
+            <a class="forward-button"  href="{{ url_for('login_page') }}">back to dashboard</a>
         </div>
     </main>
 
