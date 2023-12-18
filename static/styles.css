@@ -90,6 +90,19 @@ main {
   margin: auto; /* Add this line to center the container */
 }
 
+.container h1 {
+  font-size: 35px;
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Adjust the top margin as needed */
+  color: black; 
+  font-family: 'Trocchi', serif; 
+  font-size: 45px; 
+  font-weight: normal; 
+  line-height: 48px; 
+  margin-bottom: 1;
+  
+}
+
 .container ul li {
   list-style: none;
   border-bottom: 1px solid #ccc;
@@ -112,6 +125,18 @@ main {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+.container .container-dropdown {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+}
+
+
 
 /* Start Products containers  */
 
