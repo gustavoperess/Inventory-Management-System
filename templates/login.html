@@ -75,6 +75,8 @@
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Category</th>
+                                <th>Date added</th>
+                                <th> </th>
                             </tr>
                     </thead>
                     <tbody>
@@ -88,6 +90,7 @@
                             <td>$ {{ product.price }}</td>
                             <td>{{ product.quantity }}</td>
                             <td>{{ product.category }}</td>
+                            <td>{{ product.date_added }}</td>
                             <td>
                                 <!-- Form for deleting a product -->
                                 <form method="POST" action="{{ url_for('login_page') }}">

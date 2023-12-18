@@ -13,7 +13,7 @@ class ProductRepository:
         products = []
         for row in rows:
             # Create a Product object for each row and append it to the list
-            product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+            product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['date_added'], row['user_id'])
             products.append(product)
         return products
     
@@ -23,32 +23,32 @@ class ProductRepository:
         if filter == "Price: High to Low":
             rows = self._connection.execute('SELECT * from products ORDER BY price DESC')
             for row in rows:
-                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['date_added'], row['user_id'])
                 products.append(product)
         elif filter == "Price: Low to High":
             rows = self._connection.execute('SELECT * from products ORDER BY price ASC')
             for row in rows:
-                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['date_added'], row['user_id'])
                 products.append(product)
         elif filter == "Category":
             rows = self._connection.execute('SELECT * from products ORDER BY category ASC')
             for row in rows:
-                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['date_added'], row['user_id'])
                 products.append(product)
         elif filter == "Name":
             rows = self._connection.execute('SELECT * from products ORDER BY product_name ASC')
             for row in rows:
-                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['date_added'], row['user_id'])
                 products.append(product)
         elif filter == "First Added":
             rows = self._connection.execute('SELECT * from products ORDER BY id ASC')
             for row in rows:
-                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['date_added'], row['user_id'])
                 products.append(product)
         elif filter == "Last Added":
             rows = self._connection.execute('SELECT * from products ORDER BY id DESC')
             for row in rows:
-                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+                product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['date_added'], row['user_id'])
                 products.append(product)
      
         return products
@@ -59,7 +59,7 @@ class ProductRepository:
         products = []
         for row in rows:
             # Create a Product object for each row and append it to the list
-            product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+            product = Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['date_added'], row['user_id'])
             products.append(product)
         
         # Initialize a dictionary to store aggregated information
@@ -92,15 +92,15 @@ class ProductRepository:
         # Check if rows are not empty and create a Product object
         if rows:
             row = rows[0]
-            return Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['user_id'])
+            return Product(row['id'], row['product_name'], row['quantity'], row['category'], row['price'], row['date_added'], row['user_id'])
         else:
             # Return None if the product is not found
             return None
 
     # Insert a new product into the database and return the updated Product object with the assigned ID
     def create(self, product):
-        rows = self._connection.execute('INSERT INTO products (product_name, quantity, category, price, user_id) VALUES (%s, %s, %s, %s, %s) RETURNING id', [
-                                        product.product_name, product.quantity, product.category, product.price, product.user_id])
+        rows = self._connection.execute('INSERT INTO products (product_name, quantity, category, price, date_added, user_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id', [
+                                        product.product_name, product.quantity, product.category, product.price, product.date_added, product.user_id])
         
         # Get the assigned ID for the newly created product
         row = rows[0]

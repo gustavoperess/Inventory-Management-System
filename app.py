@@ -10,8 +10,7 @@ from lib.forms import LoginForm, RegisterForm, AddProductForm, Filters
 from flask_bcrypt import Bcrypt
 from flask_paginate import Pagination, get_page_args
 from lib.api import API_KEY
-
-
+from datetime import date
 
 app = Flask(__name__, static_url_path='/static')
 bcrypt = Bcrypt(app)
@@ -106,9 +105,10 @@ def login_page():
 def add_item():
     add_form = AddProductForm()
     if add_form.validate_on_submit():
+        today = date.today()
         connection = get_flask_database_connection(app)
         product = ProductRepository(connection)
-        new_product = Product(None, add_form.product_name.data, add_form.quantity.data, add_form.category.data, add_form.price.data , current_user.id)
+        new_product = Product(None, add_form.product_name.data, add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
         product.create(new_product)
     return render_template('add_item.html', form=add_form)
 
