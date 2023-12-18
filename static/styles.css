@@ -253,9 +253,9 @@ footer {
 
 
 
-/* Add a new class for styling login button */
+/* Categories Container */
 
-.container.categories-container {
+.categories-container {
   width: 30%;
   background-color: #f0f0f0;
   padding: 10px;
@@ -265,28 +265,29 @@ footer {
   overflow-y: auto; /* Add a vertical scrollbar if needed */
 }
 
-.container.categories-container h1 {
+.categories-container h1 {
   margin-bottom: 10px;
 }
 
-.container.categories-container ul {
+.categories-container ul {
   padding: 0;
 }
 
-.container.categories-container li {
+.categories-container li {
   list-style: none;
   border-bottom: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 5px;
 }
 
-.container.products-container {
+.products-container {
   flex: 2;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* End of Container */
 
 
 /* Add a new class for styling the "Add Inventory" button */
