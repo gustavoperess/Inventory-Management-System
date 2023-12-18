@@ -10,7 +10,8 @@ body {
 
 header {
   display: flex;
-  flex-direction: column; /* Stack children vertically */
+  flex-direction: column;
+  /* Stack children vertically */
   background-color: #333;
   color: #fff;
   padding: 10px;
@@ -18,9 +19,11 @@ header {
 
 .logo-container {
   width: 100%;
-  height: 60px; /* Adjust the height as needed */
+  height: 60px;
+  /* Adjust the height as needed */
   display: flex;
-  justify-content: space-between; /* Add this line to create space between logo and logout */
+  justify-content: space-between;
+  /* Add this line to create space between logo and logout */
   align-items: center;
 }
 
@@ -28,7 +31,8 @@ header {
 header .logout-button {
   color: #fff;
   text-decoration: none;
-  padding: 8px 14px; /* Adjust padding to make it slightly bigger */
+  padding: 8px 14px;
+  /* Adjust padding to make it slightly bigger */
   border: 1px solid #fff;
   border-radius: 5px;
 }
@@ -41,7 +45,8 @@ header .logout-button {
 
 .actions-container {
   width: 100%;
-  height: 60px; /* Adjust the height as needed */
+  height: 60px;
+  /* Adjust the height as needed */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,32 +61,162 @@ header .logout-button {
   cursor: pointer;
   border-radius: 5px;
   align-items: center;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .user-heading {
-  margin: 0; /* Remove margin */
-  text-align: center; /* Center text */
+  margin: 0;
+  /* Remove margin */
+  text-align: center;
+  /* Center text */
   margin-right: 300px;
 }
 
 .dashboard-heading {
-  margin-left: 0px; /* Adjust as needed */
+  margin-left: 0px;
+  /* Adjust as needed */
 }
 
+/* end of header */
 
-
-/* end of header  */
-
-/* Main body  */
-
-main {
+.container-fluid {
+  /* Aligns the children items in a row direction */
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+
 }
 
-/* end of main body  */
+/* end of main body */
+
+/* Container for displaying inventory categories */
+.categories-container {
+  width: 25%;
+  /* Adjust the width as needed */
+  background-color: #f0f0f0;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.categories-container h1 {
+  margin-bottom: 10px;
+}
+
+.categories-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.categories-container th,
+.categories-container td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.categories-container th {
+  background-color: #ddd;
+}
+
+.categories-container ul {
+  padding: 0;
+  list-style: none;
+}
+
+.categories-container li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+/* Container for displaying a table of products */
+.products-container {
+  width: 75%;
+  /* Adjust the width as needed */
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.products-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.products-container th,
+.products-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.products-container th {
+  background-color: #f2f2f2;
+}
+
+.products-container td {
+  font-size: 20px;
+}
+
+.products-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.products-container input {
+  margin-bottom: 10px;
+}
+
+/* button for filter by */
+.products-container input[type="submit"][value="Filter by"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 2px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.products-container input[type="submit"][value="Filter by"]:hover {
+  background-color: #45a049;
+}
+
+/* delete button */
+.products-container input[type="submit"][value="Delete"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.products-container input[type="submit"][value="Delete"]:hover {
+  background-color: #45a049;
+}
+
+/* End of Products containers */
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+
 
 .container {
   width: 20%;
@@ -163,136 +298,3 @@ main {
   border-radius: 5px;
   cursor: pointer;
 }
-
-
-/* Start Products containers  */
-
-.products-container {
-  width: 75%;
-  flex: 2;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.products-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.products-container th,
-.products-container td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.products-container th {
-  background-color: #f2f2f2;
-}
-
-.products-container td {
-  font-size: 20px;
-}
-
-.products-container form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.products-container input {
-  margin-bottom: 10px;
-}
-
-/* button for filter by  */
-.products-container input[type="submit"][value="Filter by"] {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 2px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.products-container input[type="submit"][value="Filter by"]:hover {
-  background-color: #45a049;
-}
-
-
-/* delete button  */
-.products-container input[type="submit"][value="Delete"] {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.products-container input[type="submit"][value="Delete"]:hover {
-  background-color: #45a049;
-}
-
-/* End of Products containers  */
-
-
-/* Categories Container */
-
-.categories-container {
-  width: 25%;
-  background-color: #f0f0f0;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-right: 20px; /* Keep the margin-right for spacing */
-  height: 100%; /* Set a fixed height for the container */
-  overflow-y: auto; /* Add a vertical scrollbar if needed */
-}
-
-.categories-container h1 {
-  margin-bottom: 10px;
-}
-
-.categories-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 10px;
-}
-
-.categories-container th, .categories-container td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-}
-
-.categories-container th {
-  background-color: #ddd;
-}
-
-.categories-container ul {
-  padding: 0;
-  list-style: none;
-}
-
-.categories-container li {
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 5px;
-}
-
-/* End of Container */
-
-
-
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-

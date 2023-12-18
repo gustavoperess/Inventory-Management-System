@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Chitter Login page</title>
     <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
 </head>
+
 <body>
     <header>
         <div class="logo-container">
@@ -27,80 +31,83 @@
         <!-- Main content section -->
 
         <!-- Container for displaying inventory categories -->
-        <div class="categories-container">
-            <h1>Categories</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Total Spent</th>
-                        <th>Products Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Loop through product_count items and display relevant information -->
-                    {% for product, value in product_count.items() %}
+        <div class="container-fluid">
+            <div class="categories-container">
+                <h1>Categories</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Total Spent</th>
+                            <th>Products Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through product_count items and display relevant information -->
+                        {% for product, value in product_count.items() %}
                         {% if value['user_id'] == user.id %}
-                            <tr>
-                                <td>{{ product }}</td>
-                                <td>${{ value['price'] }}</td>
-                                <td>{{ value['quantity'] }}</td>
-                            </tr>
+                        <tr>
+                            <td>{{ product }}</td>
+                            <td>${{ value['price'] }}</td>
+                            <td>{{ value['quantity'] }}</td>
+                        </tr>
                         {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
 
-        <!-- Container for displaying a table of products -->
-        <div class="products-container">
-            <h1>Products</h1>
-            <table>
-                <thead>               
-                    <form method="POST" action="" id="filterForm">
-                        {{ form.csrf_token }}
-                        {{ form.hidden_tag() }}
-                        {{ form.selected_filter }}
-                        <input type="submit" value="Filter by">
-                    </form>
-                      <nav>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Category</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Loop through all products and display relevant information -->
-                    
-                    {% for product in filter_by_products %}
-                        {% if product.user_id == user.id %} 
+            <!-- Container for displaying a table of products -->
+            <div class="products-container">
+                <h1>Products</h1>
+                <table>
+                    <thead>
+                        <form method="POST" action="" id="filterForm">
+                            {{ form.csrf_token }}
+                            {{ form.hidden_tag() }}
+                            {{ form.selected_filter }}
+                            <input type="submit" value="Filter by">
+                        </form>
+                        <nav>
                             <tr>
-                                <td>{{ product.id }}</td>
-                                <td>{{ product.product_name }}</td>
-                                <td>$ {{ product.price }}</td>
-                                <td>{{ product.quantity }}</td>
-                                <td>{{ product.category }}</td>
-                                <td>
-                                    <!-- Form for deleting a product -->
-                                    <form method="POST" action="{{ url_for('login_page') }}">
-                                        <input type="hidden" name="delete_post" value="{{ product.id }}">
-                                        <input type="submit" value="Delete">
-                                    </form>
-                                </td>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Category</th>
                             </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through all products and display relevant information -->
+
+                        {% for product in filter_by_products %}
+                        {% if product.user_id == user.id %}
+                        <tr>
+                            <td>{{ product.id }}</td>
+                            <td>{{ product.product_name }}</td>
+                            <td>$ {{ product.price }}</td>
+                            <td>{{ product.quantity }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>
+                                <!-- Form for deleting a product -->
+                                <form method="POST" action="{{ url_for('login_page') }}">
+                                    <input type="hidden" name="delete_post" value="{{ product.id }}">
+                                    <input type="submit" value="Delete">
+                                </form>
+                            </td>
+                        </tr>
                         {% endif %}
-                    {% endfor %}
-                </tbody>
-            </table>
-            <div class="pagination">
-                {{ pagination.links }}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    {{ pagination.links }}
+                </div>
             </div>
         </div>
     </main>
     <footer>
     </footer>
 </body>
+
 </html>
