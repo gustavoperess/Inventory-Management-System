@@ -36,9 +36,10 @@
                 {{ form.category }}<br>
                 {{ form.submit }}
             </form>
-            
-            <!-- Link to navigate back to the login page -->
-            <a href="{{ url_for('login_page') }}">back to login page</a>
+            <nav>
+            <!-- Link to navigate back to dashnoard -->
+            <a class="styled-button"  href="{{ url_for('login_page') }}">back to dashboard</a>
+            </nav>
         </div>
     </main>
 

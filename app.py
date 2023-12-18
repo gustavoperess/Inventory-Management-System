@@ -71,6 +71,11 @@ def login_page():
     product_count = product_repository.product_count(current_user.id)
     
     form = Filters()
+    i = 44
+    for subchoice in form.selected_filter:
+     print(subchoice(**{'data-id': i}))
+     i += 1
+    
     filter_by_products = None
     if filter_by_products is None:
         default_filter = "First Added" 
@@ -115,7 +120,7 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register_page():
     form = RegisterForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit():       
         connection = get_flask_database_connection(app)
         repository = UserRepository(connection)
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')

@@ -6,6 +6,7 @@ body {
   padding: 0;
 }
 
+/* header style children vertically */
 
 header {
   display: flex;
@@ -41,106 +42,6 @@ header {
   margin-left: 0px; /* Adjust as needed */
 }
 
-main {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.container {
-  width: 20%;
-  background-color: #f0f0f0;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: auto; /* Add this line to center the container */
-}
-
-
-
-.container ul li {
-  list-style: none;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-}
-
-.container input[type="text"],
-.container input[type="password"],
-.container input[type="email"],
-.container input[type="number"]  {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  /* Additional styling to override default styles */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-.products-container {
-  width: 75%;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.products-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.products-container th,
-.products-container td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.products-container th {
-  background-color: #f2f2f2;
-}
-
-.products-container td {
-  font-size: 14px;
-}
-
-.products-container form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.products-container input {
-  margin-bottom: 10px;
-}
-
-.products-container input[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.products-container input[type="submit"]:hover {
-  background-color: #45a049;
-}
-
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
 
 .logout-button {
   color: #fff;
@@ -168,43 +69,138 @@ header .logout-button {
   color: #333;
 }
 
-/* Add a new class for styling login button */
-.styled-login-button {
+
+/* end of header  */
+
+/* Main body  */
+
+main {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* end of main body  */
+
+.container {
+  width: 20%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: auto; /* Add this line to center the container */
+}
+
+.container ul li {
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Style for the inputs in the system  */
+.container input[type="text"],
+.container input[type="password"],
+.container input[type="email"],
+.container input[type="number"]  {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Start Products containers  */
+
+.products-container {
+  width: 75%;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.products-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.products-container th,
+.products-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.products-container th {
+  background-color: #f2f2f2;
+}
+
+.products-container td {
+  font-size: 20px;
+}
+
+.products-container form {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 10px 20px;
-  margin: 10px;
+  margin-top: 20px;
+}
+
+.products-container input {
+  margin-bottom: 10px;
+}
+
+/* button for filter by  */
+.products-container input[type="submit"][value="Filter by"] {
   background-color: #4CAF50;
   color: white;
-  text-decoration: none;
+  border: none;
+  padding: 2px 15px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-/* Apply the new class to the login button */
-nav .styled-button,
-nav .styled-login-button,
-nav .styled-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  margin: 10px;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-nav .styled-button:hover,
-nav .styled-login-button:hover {
+.products-container input[type="submit"][value="Filter by"]:hover {
   background-color: #45a049;
 }
 
 
- 
+/* delete button  */
+.products-container input[type="submit"][value="Delete"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.products-container input[type="submit"][value="Delete"]:hover {
+  background-color: #45a049;
+}
+
+
+/* End of Products containers  */
+
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+/* Add a new class for styling login button */
+
 .container.categories-container {
   width: 30%;
   background-color: #f0f0f0;
