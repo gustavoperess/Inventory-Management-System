@@ -79,7 +79,7 @@ def edit_page(product_id):
     add_form.quantity.render_kw = {'placeholder': product.quantity}
     if add_form.validate_on_submit():
         today = date.today()
-        edited_product = Product(product_id, add_form.product_name.data, add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
+        edited_product = Product(product_id, add_form.product_name.data.title(), add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
         product_repository.update(edited_product)
         return redirect(url_for('login_page'))
 
@@ -159,7 +159,7 @@ def add_item():
         today = date.today()
         connection = get_flask_database_connection(app)
         product = ProductRepository(connection)
-        new_product = Product(None, add_form.product_name.data, add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
+        new_product = Product(None, add_form.product_name.data.title(), add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
         product.create(new_product)
     return render_template('add_item.html', form=add_form)
 
