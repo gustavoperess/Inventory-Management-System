@@ -47,3 +47,7 @@ class AddProductForm(FlaskForm):
     
 class Filters(FlaskForm):
     selected_filter = SelectField('Sort by:', choices=dropdowchoises)
+    
+
+class EditForm(FlaskForm):
+    pass

@@ -62,6 +62,11 @@ def main_page():
 
 
 
+@app.route('/product_information', methods=['GET', 'POST'])
+def product_information():
+    pass
+
+
 @app.route('/login', methods=['GET', 'POST'])
 @login_required
 def login_page():
@@ -87,6 +92,19 @@ def login_page():
         product_id_to_delete = int(request.form['delete_post'])
         product_repository.delete(product_id_to_delete)
         return redirect(url_for('login_page'))
+    
+    if request.method == 'POST' and 'update_post' in request.form:
+        
+        # product_to_update = int(request.form['update_post'])
+        # product_name=request.form['product_name'],
+        # quantity=int(request.form['quantity']),
+        # category=request.form['category'],
+        # price=float(request.form['price']),
+        # today = date.today()
+        # update_product = Product(product_to_update, product_name,quantity, category, price, today,  current_user.id)
+        # product_repository.update(update_product)
+        return render_template(('product_information.html'))
+    
     
     page, per_page, offset= get_page_args()
     total = len(filter_by_products)

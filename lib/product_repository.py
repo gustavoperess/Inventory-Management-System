@@ -113,6 +113,14 @@ class ProductRepository:
         self._connection.execute("DELETE FROM products WHERE id = %s", [id])
         # Return None after deleting the product
     
+        
+    def update(self, product):
+        self._connection.execute(
+            "UPDATE products SET product_name = %s, quantity = %s, category = %s, price = %s WHERE id = %s",
+            [product.product_name, product.quantity, product.category, product.price, product.id]
+        )
+    
+    
     # Ensure that the next ID is always one greater than the latest created product's ID     
     def _generate_next_id(self):
         # Retrieve all products and calculate the next available ID
