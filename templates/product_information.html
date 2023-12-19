@@ -45,6 +45,17 @@
                                 <th> </th>
                             </tr>
                     </thead>
+                    <tbody>
+                        <!-- Loop through all products and display relevant information -->
+                        <tr>
+                            <td>{{ product.id }}</td>
+                            <td>{{ product.product_name }}</td>
+                            <td>$ {{ product.price }}</td>
+                            <td>{{ product.quantity }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>{{ product.date_added }}</td>
+                        </tr>
+                    </tbody>
             </div>
         </div>
     </main>

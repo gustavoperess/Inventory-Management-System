@@ -66,10 +66,9 @@ def main_page():
 def product_information(product_id):
     connection = get_flask_database_connection(app)
     product_repository = ProductRepository(connection)
-    user_repository = UserRepository(connection)
-    product_info = product_repository.find(product_id)
+    product = product_repository.find(product_id)
     
-    return render_template('product_information.html', user=current_user, product_info=product_info)
+    return render_template('product_information.html', user=current_user, product=product)
 
 
 @app.route('/login', methods=['GET', 'POST'])
