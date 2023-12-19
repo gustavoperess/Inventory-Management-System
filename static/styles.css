@@ -320,3 +320,92 @@ footer {
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+  /* PRODUCT INFORMATION PAGE. */
+
+
+  .products-container-info-page {
+    width: 55%;
+    margin-left: 20px;
+    /* Adjust the width as needed */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .products-container-info-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .products-container-info-page th,
+  .products-container-info-page td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .products-container-info-page th {
+    background-color: #f2f2f2;
+  }
+  
+  .products-container-info-page td {
+    font-size: 20px;
+  }
+  
+  .products-container-info-page form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .products-container-info-page input {
+    margin-bottom: 10px;
+  }
+  
+  /* button for filter by */
+  .products-container-info-page input[type="submit"][value="Filter by"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    margin-left: 3px;
+    padding: 1px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .products-container-info-page input[type="submit"][value="Filter by"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* delete button */
+  .products-container-info-page input[type="submit"][value="Delete"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .products-container-info-page input[type="submit"][value="Delete"] :hover {
+    background-color: #45a049;
+  }
+  
+  /* For "Update" button */
+  .products-container-info-page input[type="submit"][value="Update"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .products-container-info-page input[type="submit"][value="Update"]:hover {
+    background-color: #45a049;
+  }
+  

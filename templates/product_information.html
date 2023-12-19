@@ -17,7 +17,7 @@
         </div>
         <div class="actions-container">
             <h1 class="dashboard-heading">Product information page</h1>
-            <h1 class="user-heading"> {{ user.username.title() }}</h1>
+            <h1 class="user-heading">{{ user.username.title() }}</h1>
             <nav>
                 <a class="add-button" href="{{ url_for('add_item') }}">Add Inventory</a>
             </nav>
@@ -26,24 +26,20 @@
 
     <main>
         <!-- Main content section -->
-
-        <!-- Container for displaying inventory categories -->
+        <!-- Container for displaying a table of products -->
         <div class="container-fluid">
-            <!-- Container for displaying a table of products -->
-            <div class="products-container">
+            <div class="products-container-info-page">
                 <h1>Product information</h1>
                 <table>
                     <thead>
-                        <nav>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Category</th>
-                                <th>Date added</th>
-                                <th> </th>
-                            </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Category</th>
+                            <th>Date added</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <!-- Loop through all products and display relevant information -->
@@ -56,9 +52,14 @@
                             <td>{{ product.date_added }}</td>
                         </tr>
                     </tbody>
+                </table>
             </div>
         </div>
+        <div>
+           <h1> Product Description </h1>
+        </div>
     </main>
+  
     <footer>
     </footer>
 </body>
