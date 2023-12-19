@@ -68,6 +68,13 @@ def edit_page(product_id):
     product_repository = ProductRepository(connection)
     product = product_repository.find(product_id)
     
+    
+    if request.method == 'POST' and 'delete_post' in request.form:
+        product_id_to_delete = int(request.form['delete_post'])
+        product_repository.delete(product_id_to_delete)
+        return redirect(url_for('login_page'))
+    
+    
     add_form = AddProductForm()
     if add_form.validate_on_submit():
         today = date.today()
@@ -89,7 +96,10 @@ def product_information(product_id):
     product = product_repository.find(product_id)
     
     if request.method == 'POST' and 'delete_post' in request.form:
-        pass
+        print("DELETED")
+        # product_id_to_delete = int(request.form['delete_post'])
+        # product_repository.delete(product_id_to_delete)
+        # return redirect(url_for('login_page'))
     
     if request.method == 'POST' and 'edit_post' in request.form:
         return redirect(url_for('edit_page', product_id=product_id))

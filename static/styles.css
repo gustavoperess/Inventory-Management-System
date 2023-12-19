@@ -436,6 +436,20 @@ footer {
     
   }
 
-
+  .side_buttons  .forward-button {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    padding: 10px;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
 
   
+

@@ -59,21 +59,20 @@
                     </tbody>
                 </table>
             </div>
-            <div>
+            <div class="side_buttons">
                 <h1>Product information</h1>
-                <tr>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                    <form method="POST" action="">
-                        <input type="hidden" name="delete_post" value="{{ product.id }}">
-                        <input type="submit" value="delete">
-                    </form>
+            
+                    <a class="forward-button"  href="{{ url_for('login_page') }}">Cancel Changes</a>
 
                     <form method="POST" action="">
-                        <input type="hidden" name="edit_post" value="{{ product.id }}">
-                        <input type="submit" value="Edit">
+                        <input type="hidden" name="Save_changes" value="{{ product.id }}">
+                        <input type="submit" value="Save changes">
                     </form>
-                </tr>
+                    
+                    <form method="POST" action="">
+                        <input type="hidden" name="delete_post" value="{{ product.id }}">
+                        <input type="submit" value="Delete Post">
+                    </form>
             </div>
         </div>
         <div>
