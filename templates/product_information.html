@@ -17,7 +17,7 @@
         </div>
         <div class="actions-container">
             <h1 class="dashboard-heading">Dashboard</h1>
-            <h1 class="user-heading">Welcome back {{ user.username.title() }}</h1>
+            <h1 class="user-heading">Welcome back </h1>
             <nav>
                 <a class="add-button" href="{{ url_for('add_item') }}">Add Inventory</a>
             </nav>
@@ -29,42 +29,11 @@
 
         <!-- Container for displaying inventory categories -->
         <div class="container-fluid">
-            <div class="categories-container">
-                <h1>Categories</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Total Spent</th>
-                            <th>Products Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Loop through product_count items and display relevant information -->
-                        {% for product, value in product_count.items() %}
-                        {% if value['user_id'] == user.id %}
-                        <tr>
-                            <td>{{ product }}</td>
-                            <td>${{ value['price'] }}</td>
-                            <td>{{ value['quantity'] }}</td>
-                        </tr>
-                        {% endif %}
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-
             <!-- Container for displaying a table of products -->
             <div class="products-container">
-                <h1>Products</h1>
+                <h1>Product information</h1>
                 <table>
                     <thead>
-                        <form method="POST" action="" id="filterForm">
-                            {{ form.csrf_token }}
-                            {{ form.hidden_tag() }}
-                            {{ form.selected_filter }}
-                            <input type="submit" value="Filter by">
-                        </form>
                         <nav>
                             <tr>
                                 <th>#</th>
@@ -76,37 +45,6 @@
                                 <th> </th>
                             </tr>
                     </thead>
-                    <tbody>
-                        <!-- Loop through all products and display relevant information -->
-
-                        {% for product in filter_by_products %}
-                        {% if product.user_id == user.id %}
-                        <tr>
-                            <td>{{ product.id }}</td>
-                            <td>{{ product.product_name }}</td>
-                            <td>$ {{ product.price }}</td>
-                            <td>{{ product.quantity }}</td>
-                            <td>{{ product.category }}</td>
-                            <td>{{ product.date_added }}</td>
-                            <td>
-                                <!-- Form for deleting a product -->
-                                <form method="POST" action="{{ url_for('login_page') }}">
-                                    <input type="hidden" name="delete_post" value="{{ product.id }}">
-                                    <input type="submit" value="Delete">
-                                </form> 
-                                  <form method="POST" action="{{ url_for('login_page') }}">
-                                    <input type="hidden" name="update_post" value="{{ product.id }}">
-                                    <input type="submit" value="Update">
-                                </form>
-                            </td>
-                        </tr>
-                        {% endif %}
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="pagination">
-                    {{ pagination.links }}
-                </div>
             </div>
         </div>
     </main>
