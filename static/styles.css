@@ -436,38 +436,34 @@ footer {
     
   }
 
-  .side_buttons  .forward-button {
-    width: 95%;
-    display: flex;
-    justify-content: center;
+  .side_buttons {
+    width: 20%;
+    margin-left: 50px;
+    margin-top: 50px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .side_buttons .forward-button,
+  .side_buttons input[type="submit"][value="Delete"] {
+    width: 100%;
     margin-top: 10px;
-    margin-left: 15px;
-    padding: 10px;
-    align-items: center;
+    padding: 15px;
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
   }
   
-
-/* delete button */
-.side_buttons input[type="submit"][value="Delete"] {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  margin-left: 15px;
-  padding: 10px;
-  align-items: center;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.side_buttons input[type="submit"][value="Delete"] :hover {
-  background-color: #45a049;
-}
+  .side_buttons .forward-button:hover,
+  .side_buttons input[type="submit"][value="Delete"]:hover {
+    background-color: #45a049;
+  }

@@ -61,7 +61,6 @@
             <div class="side_buttons">
                 {{ form.submit(class="forward-button") }}
             </form>
-                <h1>Product information</h1>
                 <a class="forward-button" href="{{ url_for('login_page') }}">Cancel Changes</a>
                 <form method="POST" action="{{ url_for('login_page') }}">
                     <input type="hidden" name="delete_post" value="{{ product.id }}">
