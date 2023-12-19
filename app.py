@@ -10,12 +10,13 @@ from lib.forms import LoginForm, RegisterForm, AddProductForm, Filters
 from flask_bcrypt import Bcrypt
 from flask_paginate import Pagination, get_page_args
 from lib.api import API_KEY
-from datetime import date
+from datetime import date, timedelta
 
 app = Flask(__name__, static_url_path='/static')
 bcrypt = Bcrypt(app)
 app.config['SECRET_KEY'] = API_KEY().database
-
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
+app.config['SESSION_REFRESH_EACH_REQUEST'] = True
 
 login_manager = LoginManager()
 login_manager.init_app(app)
