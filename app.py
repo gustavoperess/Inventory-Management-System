@@ -62,11 +62,30 @@ def main_page():
 
 
 
+@app.route('/product_information/<int:product_id>/edit_page', methods=['GET', 'POST'])
+def edit_page(product_id):
+    connection = get_flask_database_connection(app)
+    product_repository = ProductRepository(connection)
+    product = product_repository.find(product_id)
+    
+    return render_template('edit_page.html', user=current_user, product=product)
+
+
+
+
 @app.route('/product_information/<int:product_id>', methods=['GET', 'POST'])
 def product_information(product_id):
     connection = get_flask_database_connection(app)
     product_repository = ProductRepository(connection)
     product = product_repository.find(product_id)
+    
+    if request.method == 'POST' and 'delete_post' in request.form:
+        pass
+    
+    if request.method == 'POST' and 'edit_post' in request.form:
+        return redirect(url_for('edit_page', product_id=product_id))
+    
+    
     
     return render_template('product_information.html', user=current_user, product=product)
 

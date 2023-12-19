@@ -54,6 +54,22 @@
                     </tbody>
                 </table>
             </div>
+            <div>
+                <h1>Product information</h1>
+                <tr>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <form method="POST" action="">
+                        <input type="hidden" name="delete_post" value="{{ product.id }}">
+                        <input type="submit" value="delete">
+                    </form>
+
+                    <form method="POST" action="">
+                        <input type="hidden" name="edit_post" value="{{ product.id }}">
+                        <input type="submit" value="Edit">
+                    </form>
+                </tr>
+            </div>
         </div>
         <div>
            <h1> Product Description </h1>
