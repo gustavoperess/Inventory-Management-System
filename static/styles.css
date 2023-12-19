@@ -196,9 +196,28 @@ header .logout-button {
   cursor: pointer;
 }
 
-.products-container input[type="submit"][value="Delete"]:hover {
+.products-container input[type="submit"][value="Delete"] :hover {
   background-color: #45a049;
 }
+
+/* For "Update" button */
+.products-container input[type="submit"][value="Update"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.products-container input[type="submit"][value="Update"]:hover {
+  background-color: #45a049;
+}
+
+
+
+
+
 
 /* End of Products containers */
 
