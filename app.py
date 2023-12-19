@@ -68,7 +68,16 @@ def edit_page(product_id):
     product_repository = ProductRepository(connection)
     product = product_repository.find(product_id)
     
-    return render_template('edit_page.html', user=current_user, product=product)
+    add_form = AddProductForm()
+    if add_form.validate_on_submit():
+        today = date.today()
+        new_product = Product(product_id, add_form.product_name.data, add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
+
+    
+    
+    
+    
+    return render_template('edit_page.html', user=current_user, product=product, form=add_form)
 
 
 

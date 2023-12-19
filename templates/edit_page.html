@@ -1,1 +1,88 @@
-hi
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Chitter Login page</title>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <h1 class="logo-heading">IMG</h1>
+            <nav>
+                <a class="logout-button" href="{{ url_for('main_page') }}">Log out</a>
+            </nav>
+        </div>
+        <div class="actions-container">
+            <h1 class="dashboard-heading">Product information page</h1>
+            <h1 class="user-heading">{{ user.username.title() }}</h1>
+            <nav>
+                <a class="add-button" href="{{ url_for('add_item') }}">Add Inventory</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Main content section -->
+        <!-- Container for displaying a table of products -->
+        <div class="container-fluid">
+            <div class="products-container-info-page">
+                <h1>Product information</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Category</th>
+                            <th>Date added</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through all products and display relevant information -->
+                        <tr>
+                            <form method="POST" action="">
+                                <!-- CSRF protection tokens for security -->
+                                {{ form.csrf_token }}
+                                {{ form.hidden_tag() }}
+                                <td>{{ product.id }}</td>
+                                <td>{{ form.product_name }}</td>
+                                <td>{{ form.price(min=0) }}</td>
+                                <td>{{ form.quantity(min=1) }}</td>
+                                <td>{{ form.category(class="products-container-dropdown") }}</td>
+                                <td>{{ product.date_added }}</td>
+                            </form>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h1>Product information</h1>
+                <tr>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <form method="POST" action="">
+                        <input type="hidden" name="delete_post" value="{{ product.id }}">
+                        <input type="submit" value="delete">
+                    </form>
+
+                    <form method="POST" action="">
+                        <input type="hidden" name="edit_post" value="{{ product.id }}">
+                        <input type="submit" value="Edit">
+                    </form>
+                </tr>
+            </div>
+        </div>
+        <div>
+           <h1> Product Description </h1>
+        </div>
+    </main>
+  
+    <footer>
+    </footer>
+</body>
+
+</html>

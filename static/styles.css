@@ -409,3 +409,33 @@ footer {
     background-color: #45a049;
   }
   
+
+  .products-container-info-page input[type="text"],
+  .products-container-info-page input[type="password"],
+  .products-container-info-page input[type="email"],
+  .products-container-info-page input[type="number"]  {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .products-container-info-page .products-container-dropdown {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+  }
+
+
+
+  
