@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, EmailField, SelectField, DecimalField, IntegerField
 from wtforms.validators import InputRequired, Length, ValidationError
 
+
 category_names = [
         ('Household', 'Household'),
         ('Fruit', 'Fruit'),
@@ -47,7 +48,4 @@ class AddProductForm(FlaskForm):
     
 class Filters(FlaskForm):
     selected_filter = SelectField('Sort by:', choices=dropdowchoises)
-    
 
-class EditForm(FlaskForm):
-    pass

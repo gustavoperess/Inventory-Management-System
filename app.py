@@ -60,22 +60,23 @@ def main_page():
     return render_template('index.html', form=form)
 
 
-
-
 @app.route('/product_information/<int:product_id>/edit_page', methods=['GET', 'POST'])
 def edit_page(product_id):
     connection = get_flask_database_connection(app)
     product_repository = ProductRepository(connection)
     product = product_repository.find(product_id)
-    
+
     
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
         product_repository.delete(product_id_to_delete)
         return redirect(url_for('login_page'))
     
-    
+   
     add_form = AddProductForm()
+    add_form.product_name.render_kw = {'placeholder': product.product_name}
+    add_form.price.render_kw = {'placeholder': product.price}
+    add_form.quantity.render_kw = {'placeholder': product.quantity}
     if add_form.validate_on_submit():
         today = date.today()
         edited_product = Product(product_id, add_form.product_name.data, add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
