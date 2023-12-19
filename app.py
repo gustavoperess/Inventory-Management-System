@@ -78,11 +78,10 @@ def edit_page(product_id):
     add_form = AddProductForm()
     if add_form.validate_on_submit():
         today = date.today()
-        new_product = Product(product_id, add_form.product_name.data, add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
+        edited_product = Product(product_id, add_form.product_name.data, add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
+        product_repository.update(edited_product)
+        return redirect(url_for('login_page'))
 
-    
-    
-    
     
     return render_template('edit_page.html', user=current_user, product=product, form=add_form)
 

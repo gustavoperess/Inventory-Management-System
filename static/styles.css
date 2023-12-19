@@ -440,7 +440,8 @@ footer {
     width: 95%;
     display: flex;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-left: 15px;
     padding: 10px;
     align-items: center;
     background-color: #4CAF50;
@@ -451,5 +452,22 @@ footer {
   }
   
 
-  
+/* delete button */
+.side_buttons input[type="submit"][value="Delete"] {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 15px;
+  padding: 10px;
+  align-items: center;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.side_buttons input[type="submit"][value="Delete"] :hover {
+  background-color: #45a049;
+}

@@ -30,53 +30,47 @@
         <div class="container-fluid">
             <div class="products-container-info-page">
                 <h1>Product information</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Category</th>
-                            <th>Date added</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Loop through all products and display relevant information -->
-                        <tr>
-                            <form method="POST" action="">
-                                <!-- CSRF protection tokens for security -->
-                                {{ form.csrf_token }}
-                                {{ form.hidden_tag() }}
+                <form method="POST" action="">
+                    <!-- CSRF protection tokens for security -->
+                    {{ form.csrf_token }}
+                    {{ form.hidden_tag() }}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Category</th>
+                                <th>Date added</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loop through all products and display relevant information -->
+                            <tr>
                                 <td>{{ product.id }}</td>
                                 <td>{{ form.product_name }}</td>
                                 <td>{{ form.price(min=0) }}</td>
                                 <td>{{ form.quantity(min=1) }}</td>
                                 <td>{{ form.category(class="products-container-dropdown") }}</td>
                                 <td>{{ product.date_added }}</td>
-                            </form>
-                        </tr>
-                    </tbody>
-                </table>
+                            </tr>
+                        </tbody>
+                    </table>
             </div>
             <div class="side_buttons">
+                {{ form.submit(class="forward-button") }}
+            </form>
                 <h1>Product information</h1>
-            
-                    <a class="forward-button"  href="{{ url_for('login_page') }}">Cancel Changes</a>
-
-                    <form method="POST" action="">
-                        <input type="hidden" name="Save_changes" value="{{ product.id }}">
-                        <input type="submit" value="Save changes">
-                    </form>
-                    
-                    <form method="POST" action="">
-                        <input type="hidden" name="delete_post" value="{{ product.id }}">
-                        <input type="submit" value="Delete Post">
-                    </form>
+                <a class="forward-button" href="{{ url_for('login_page') }}">Cancel Changes</a>
+                <form method="POST" action="{{ url_for('login_page') }}">
+                    <input type="hidden" name="delete_post" value="{{ product.id }}">
+                    <input type="submit" value="Delete">
+                </form>
             </div>
         </div>
         <div>
-           <h1> Product Description </h1>
+            <h1> Product Description </h1>
         </div>
     </main>
   
