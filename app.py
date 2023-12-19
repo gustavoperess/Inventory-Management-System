@@ -62,9 +62,14 @@ def main_page():
 
 
 
-@app.route('/product_information', methods=['GET', 'POST'])
-def product_information():
-    return render_template('product_information.html')
+@app.route('/product_information/<int:product_id>', methods=['GET', 'POST'])
+def product_information(product_id):
+    connection = get_flask_database_connection(app)
+    product_repository = ProductRepository(connection)
+    user_repository = UserRepository(connection)
+    product_info = product_repository.find(product_id)
+    
+    return render_template('product_information.html', user=current_user, product_info=product_info)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -94,7 +99,8 @@ def login_page():
         return redirect(url_for('login_page'))
     
     if request.method == 'POST' and 'update_post' in request.form:
-            return redirect(url_for('product_information'))
+            product_id = int(request.form['update_post'])
+            return redirect(url_for('product_information', product_id=product_id))
     
     
     page, per_page, offset= get_page_args()
