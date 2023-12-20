@@ -35,8 +35,13 @@ header {
     width: 100%;
     height: 60px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center horizontally */
     align-items: center;
+}
+
+.actions-container h1 {
+    color: black;
+    text-align: center; /* Center text */
 }
 
 /* Footer */
@@ -54,20 +59,18 @@ footer {
 .container {
     width: 20%;
     background-color: #f0f0f0;
-    padding: 10px;
+    padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: auto; /* Add this line to center the container */
+    
 }
 
 .container h1 {
-    font-size: 35px;
+    font-size: 25px;
     text-align: center; /* Center the text */
-    margin-top: 20px; /* Adjust the top margin as needed */
     color: black;
     font-family: 'Trocchi', serif;
-    font-size: 45px;
     font-weight: normal;
-    line-height: 48px;
     margin-bottom: 1;
 }
 
@@ -140,4 +143,3 @@ footer {
     background-repeat: no-repeat;
     /* You can add more styles as needed */
 }
-
