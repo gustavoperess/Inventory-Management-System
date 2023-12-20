@@ -232,19 +232,36 @@ background-color: #45a049;
 
 
 
-
-/* End of Products containers */
-
-/* Footer */
-/* Footer */
-
-
 /* Pagination */
 .pagination {
 display: flex;
 justify-content: center;
+
 }
 
+.pagination a {
+  
+    color: green; /* Change the color to your desired green color */
+    text-decoration: none; /* Remove underlines from the links, if needed */
+}
+
+.pagination .active {
+    font-weight: bold; /* Make the active page bold */
+    color: green; /* Set the color for the active page */
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #45a049 !Important;
+    border: solid 1px #45a049 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #45a049 !Important;
+    border: solid 1px #45a049;
+}
 
 
 /* PRODUCT INFORMATION PAGE. */
