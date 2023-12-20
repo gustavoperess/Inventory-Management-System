@@ -10,36 +10,41 @@
 
     <!-- Header section similar to other pages -->
     <header>
-        <h1>IMG</h1>
-        <h1>Register</h1>
-    </header>
-
+      <div class="logo-container">
+          <h1 class="logo-heading">Grocery Managment System</h1>
+      </div>
+      <div class="actions-container">
+      </div>
+  </header>
+  <div class="background-container">
     <!-- Registration form similar to other pages -->
-    <div class="container">
-      <form method="POST" action="">
-          {% with messages = get_flashed_messages() %}
-            {% if messages %}
-              <ul class="flashes">
-                  {% for message in messages %}
-                      <li>{{ message }}</li>
-                  {% endfor %}
-              </ul>
-            {% endif %}
-          {% endwith %}
-          {{ form.csrf_token }}
-          {{ form.hidden_tag() }}
-          {{ form.username }}<br>
-          {{ form.password }}<br>
-          {{ form.email }}<br>
-        <nav>
-          {{ form.submit(class="green-button") }}
-          <!-- Link to navigate back similar to other pages -->
-          <a class="forward-button" href="{{ url_for('main_page') }}">Already have an account? Log In</a>
-        </nav>
-      </form>
-    </div>
+      <div class="container">
+        <form method="POST" action="">
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            {{ form.username }}<br>
+            {{ form.password }}<br>
+            {{ form.email }}<br>
+          <nav>
+            {{ form.submit(class="green-button") }}
+            <!-- Link to navigate back similar to other pages -->
+            <a class="forward-button" href="{{ url_for('main_page') }}">Already have an account? Log In</a>
+          </nav>
+        </form>
+      </div>
+  </div>
     <!-- Footer section similar to other pages -->
     <footer>
-    </footer>
+      GMS - Copyright © 2024
+  </footer>
 </body>
 </html>
