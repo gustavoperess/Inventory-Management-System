@@ -4,14 +4,14 @@
 <head>
     <title>IMG Dashboard</title>
     <!-- Link to the external CSS file for styling -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main_page.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
 <body>
     <header>
         <div class="logo-container">
-            <h1 class="logo-heading">IMG</h1>
+            <h1 class="logo-heading">Grocery Managment System</h1>
             <nav>
                 <a class="logout-button" href="{{ url_for('main_page') }}">Log out</a>
             </nav>
@@ -112,6 +112,7 @@
         </div>
     </main>
     <footer>
+        GMS - Copyright © 2024
     </footer>
 </body>
 

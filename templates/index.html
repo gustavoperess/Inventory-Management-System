@@ -8,50 +8,53 @@
 </head>
 
 <body>
-    <header>
-        <!-- Page header with a title and welcome message -->
-        <div class="logo-container">
-            <h1>Grocery Managment System</h1>
-        </div>
-        <div class="actions-container">
-            <h1>Welcome to GMS</h1>
-        </div>
-    </header>
-
-    <main>
-        <div class="background-container">
-            <!-- Main content section -->
-            <div class="container">
-                <h1>Everything you need to manage your day to day Grocery </h1>
-                <!-- Form for user login -->
-                <form method="POST" action="">
-                    <!-- Display flashed messages, typically used for displaying form validation errors or notifications -->
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                    <ul class="flashes">
-                        {% for message in messages %}
-                        <li>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                    {% endwith %}
-
-                    <!-- CSRF protection tokens for security -->
-                    {{ form.hidden_tag() }}
-                    {{ form.csrf_token }}
-
-                    <!-- Form fields for username and password -->
-                    {{ form.username }}<br>
-                    {{ form.password }}<br>
-
-                    <!-- Navigation section with a submit button and a styled link to the registration page -->
-                    {{ form.submit(class="green-button") }}
-                    <a class="forward-button" href="{{ url_for('register_page') }}">Sign up</a>
-                </form>
+    <div class="page-wrapper">
+        <header>
+            <!-- Page header with a title and welcome message -->
+            <div class="logo-container">
+                <h1>Grocery Management System</h1>
             </div>
-        </div>
-    </main>
+            <div class="actions-container">
+                <h1>Welcome to GMS</h1>
+            </div>
+        </header>
 
+        <main>
+            <div class="background-container">
+                <!-- Main content section -->
+                <div class="container">
+                    <h1>Everything you need to manage your day-to-day Grocery </h1>
+                    <!-- Form for user login -->
+                    <form method="POST" action="">
+                        <!-- Display flashed messages, typically used for displaying form validation errors or notifications -->
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <ul class="flashes">
+                            {% for message in messages %}
+                            <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {% endwith %}
+
+                        <!-- CSRF protection tokens for security -->
+                        {{ form.hidden_tag() }}
+                        {{ form.csrf_token }}
+
+                        <!-- Form fields for username and password -->
+                        {{ form.username }}<br>
+                        {{ form.password }}<br>
+
+                        <!-- Navigation section with a submit button and a styled link to the registration page -->
+                        {{ form.submit(class="green-button") }}
+                        <a class="forward-button" href="{{ url_for('register_page') }}">Sign up</a>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
     <footer>
         GMS - Copyright © 2024
     </footer>
