@@ -169,7 +169,7 @@ def add_item():
         product = ProductRepository(connection)
         new_product = Product(None, add_form.product_name.data.title(), add_form.quantity.data, add_form.category.data, add_form.price.data , today , current_user.id)
         product.create(new_product)
-    return render_template('add_item.html', form=add_form)
+    return render_template('add_item.html', form=add_form, user=current_user)
 
 
 
