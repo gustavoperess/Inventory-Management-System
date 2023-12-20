@@ -7,9 +7,12 @@ class GPT_PROMPT:
 
     def chat_prompt(self):
         client = OpenAI(
-            api_key= self.api_key
+            api_key=self.api_key
         )
-        prompt = f"Tell me more about {self.product} if this is a fruit, veggie, dairy, meat or seafood give me one receipt for it. .\n\n\n\n\n\n"
+        prompt = (
+            f"Tell me more about {self.product} if this is a fruit, veggie, dairy, meat or seafood give me one receipt for it.\n"
+            f"if it is neither of the described just give me the product description.\n\n\n\n\n\n"
+        )
 
         chat_completion = client.chat.completions.create(
             messages=[

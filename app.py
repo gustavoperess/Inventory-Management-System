@@ -115,8 +115,6 @@ def edit_page(product_id):
 
 
 
-
-
 @app.route('/login', methods=['GET', 'POST'])
 @login_required
 def login_page():
