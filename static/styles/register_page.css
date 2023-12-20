@@ -67,7 +67,6 @@ margin-top: auto; /* Push the footer to the bottom of the container */
 
 }
 
-
 .container {
 width: 20%;
 background-color: #f0f0f0;
@@ -77,16 +76,12 @@ margin: auto; /* Add this line to center the container */
 }
 
 .container h1 {
-font-size: 35px;
-text-align: center; /* Center the text */
-margin-top: 20px; /* Adjust the top margin as needed */
-color: black; 
-font-family: 'Trocchi', serif; 
-font-size: 45px; 
-font-weight: normal; 
-line-height: 48px; 
-margin-bottom: 1;
-
+    font-size: 25px;
+    text-align: center; /* Center the text */
+    color: black;
+    font-family: 'Trocchi', serif;
+    font-weight: normal;
+    margin-bottom: 1;
 }
 
 .container ul li {
