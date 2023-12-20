@@ -1,0 +1,155 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    /* Stack children vertically */
+    background-color: #B7DD79;
+    color: #fff;
+    padding: 10px;
+}
+  
+.logo-container {
+    width: 100%;
+    height: 80px;
+    background-image: url('/static/images/logo.png');
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container h1 {
+    color: black;
+    margin-left: 130px;
+
+}
+
+  
+  .actions-container {
+    width: 100%;
+    height: 60px;
+    /* Adjust the height as needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .actions-container .add-button {
+    background-color: #4CAF50;
+    display: flex;
+    margin-top: 5px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+
+  footer {
+    background-color: #B7DD79;
+    color: black;
+    text-align: center;
+    height: 73px; /* Adjust the height as needed */
+    width: 100%;
+    margin-top: auto; /* Push the footer to the bottom of the container */
+}
+  
+
+  
+
+  
+  .container {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto; /* Add this line to center the container */
+  }
+  
+  .container h1 {
+    font-size: 35px;
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Adjust the top margin as needed */
+    color: black; 
+    font-family: 'Trocchi', serif; 
+    font-size: 45px; 
+    font-weight: normal; 
+    line-height: 48px; 
+    margin-bottom: 1;
+    
+  }
+  
+  .container ul li {
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  /* Style for the inputs in the system  */
+  .container input[type="text"],
+  .container input[type="password"],
+  .container input[type="email"],
+  .container input[type="number"]  {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .container .container-dropdown {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+  }
+  
+  .container .green-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .container .forward-button {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    padding: 10px;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
