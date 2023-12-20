@@ -515,3 +515,20 @@ footer {
     background-color: #45a049;
   }
 
+  .product-description {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    font-family: 'Trocchi', serif;
+    font-size: 20px;
+    font-weight: normal;
+    color: #666666;
+    margin-left: 20px; /* Add margin to the left */
+    margin-right: 20px; /* Add margin to the right */
+}
+
+.product-description h1 {
+    color: black; /* Set the text color to white */
+}
