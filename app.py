@@ -145,7 +145,7 @@ def login_page():
     pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap4')
     paginated_products = filter_by_products[offset: offset + per_page]
     current_page = int(request.args.get('page', 1))
-    print(current_page)
+   
     
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
