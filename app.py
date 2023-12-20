@@ -12,6 +12,7 @@ from flask_paginate import Pagination, get_page_args
 from lib.api import API_KEY
 from datetime import date, timedelta
 from lib.gpt_prompt import GPT_PROMPT
+from flask import session
 
 app = Flask(__name__, static_url_path='/static')
 bcrypt = Bcrypt(app)
@@ -62,12 +63,35 @@ def main_page():
     return render_template('index.html', form=form)
 
 
+
+@app.route('/product_information/<int:product_id>', methods=['GET', 'POST'])
+def product_information(product_id):
+    connection = get_flask_database_connection(app)
+    product_repository = ProductRepository(connection)
+    product = product_repository.find(product_id)
+    gpt = GPT_PROMPT(API_KEY().gpt, product.product_name)
+    session['gpt_data'] = gpt.chat_prompt()
+
+    
+    if request.method == 'POST' and 'delete_post' in request.form:
+        product_id_to_delete = int(request.form['delete_post'])
+        product_repository.delete(product_id_to_delete)
+        return redirect(url_for('login_page'))
+    
+    if request.method == 'POST' and 'edit_post' in request.form:
+        return redirect(url_for('edit_page', product_id=product_id))
+    
+    
+    
+    return render_template('product_information.html', user=current_user, product=product, gpt=gpt)
+
+
 @app.route('/product_information/<int:product_id>/edit_page', methods=['GET', 'POST'])
 def edit_page(product_id):
     connection = get_flask_database_connection(app)
     product_repository = ProductRepository(connection)
     product = product_repository.find(product_id)
-    gpt = GPT_PROMPT(API_KEY().gpt, product.product_name)
+    gpt_data = session.pop('gpt_data', None)
  
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
@@ -86,29 +110,11 @@ def edit_page(product_id):
         return redirect(url_for('login_page'))
 
     
-    return render_template('edit_page.html', user=current_user, product=product, form=add_form, gpt=gpt)
+    return render_template('edit_page.html', user=current_user, product=product, form=add_form, gpt_data=gpt_data)
 
 
 
 
-@app.route('/product_information/<int:product_id>', methods=['GET', 'POST'])
-def product_information(product_id):
-    connection = get_flask_database_connection(app)
-    product_repository = ProductRepository(connection)
-    product = product_repository.find(product_id)
-    gpt = GPT_PROMPT(API_KEY().gpt, product.product_name)
-    
-    if request.method == 'POST' and 'delete_post' in request.form:
-        product_id_to_delete = int(request.form['delete_post'])
-        product_repository.delete(product_id_to_delete)
-        return redirect(url_for('login_page'))
-    
-    if request.method == 'POST' and 'edit_post' in request.form:
-        return redirect(url_for('edit_page', product_id=product_id))
-    
-    
-    
-    return render_template('product_information.html', user=current_user, product=product, gpt=gpt)
 
 
 @app.route('/login', methods=['GET', 'POST'])
