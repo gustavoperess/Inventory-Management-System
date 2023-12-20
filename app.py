@@ -96,6 +96,7 @@ def product_information(product_id):
     connection = get_flask_database_connection(app)
     product_repository = ProductRepository(connection)
     product = product_repository.find(product_id)
+    gpt = GPT_PROMPT(API_KEY().gpt, product.product_name)
     
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
@@ -107,7 +108,7 @@ def product_information(product_id):
     
     
     
-    return render_template('product_information.html', user=current_user, product=product)
+    return render_template('product_information.html', user=current_user, product=product, gpt=gpt)
 
 
 @app.route('/login', methods=['GET', 'POST'])
