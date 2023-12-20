@@ -533,3 +533,13 @@ footer {
 .product-description h1 {
     color: black; /* Set the text color to white */
 }
+
+.background-container {
+  width: 100%;
+  height: 780px;
+  background-image: url('images/bananas.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* You can add more styles as needed */
+}

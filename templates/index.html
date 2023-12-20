@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>IMG Login Page</title>
     <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+
 <body>
+  
+
     <header>
         <!-- Page header with a title and welcome message -->
         <div class="logo-container">
             <h1 class="logo-heading">IMG</h1>
         </div>
         <div class="actions-container">
-
-        <h2>Please enter your user name and password or create a new account</h2>
-        <h1>Welcome to IMG</h1>
-    </div>
+            <h2>Please enter your username and password or create a new account</h2>
+            <h1>Welcome to IMG</h1>
+        </div>
     </header>
-    <main>
-        <!-- Main content section -->
-        <div class="container">
-            <!-- Form for user login -->
-            <form method="POST" action="">
-                <!-- Display flashed messages, typically used for displaying form validation errors or notifications -->
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        <ul class="flashes">
-                            {% for message in messages %}
-                                <li>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                {% endwith %}
 
-                <!-- CSRF protection tokens for security -->
-                {{ form.hidden_tag() }}
-                {{ form.csrf_token }}
-                
-                <!-- Form fields for username and password -->
-                {{ form.username }}</br>
-                {{ form.password }}</br>
-                
-                <!-- Navigation section with a submit button and a styled link to the registration page -->
+    <main>
+        <div class="background-container">
+            <!-- Main content section -->
+            <div class="container">
+                <!-- Form for user login -->
+                <form method="POST" action="">
+                    <!-- Display flashed messages, typically used for displaying form validation errors or notifications -->
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+
+                    <!-- CSRF protection tokens for security -->
+                    {{ form.hidden_tag() }}
+                    {{ form.csrf_token }}
+
+                    <!-- Form fields for username and password -->
+                    {{ form.username }}<br>
+                    {{ form.password }}<br>
+
+                    <!-- Navigation section with a submit button and a styled link to the registration page -->
                     {{ form.submit(class="green-button") }}
                     <a class="forward-button" href="{{ url_for('register_page') }}">Sign up</a>
-            </form>
+                </form>
+            </div>
         </div>
     </main>
+
     <footer>
+        <!-- Footer content goes here if needed -->
     </footer>
 </body>
+
 </html>
