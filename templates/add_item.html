@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <!-- Head section with the title and link to the external CSS file for styling -->
-    <title>IMG Input page</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>GMS Input page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/add_item.css') }}">
 </head>
 <body>
     <!-- Body section -->
@@ -11,14 +11,13 @@
     <!-- Header section -->
     <header>
         <div class="logo-container">
-            <h1 class="logo-heading">IMG</h1>
+            <h1 class="logo-heading">GMS</h1>
             <nav>
                 <a class="logout-button" href="{{ url_for('main_page') }}">Log out</a>
             </nav>
         </div>
         <div class="actions-container">
             <h1 class="dashboard-heading">Input Page </h1>
-            <h2>Please enter your user name and password or create a new account</h2>
             <h1>Welcome to IMG</h1>
         </div>
     </header>
