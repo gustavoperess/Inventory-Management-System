@@ -527,6 +527,7 @@ footer {
     color: #666666;
     margin-left: 20px; /* Add margin to the left */
     margin-right: 20px; /* Add margin to the right */
+    white-space: pre-line;
 }
 
 .product-description h1 {
