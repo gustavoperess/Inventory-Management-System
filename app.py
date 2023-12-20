@@ -11,6 +11,7 @@ from flask_bcrypt import Bcrypt
 from flask_paginate import Pagination, get_page_args
 from lib.api import API_KEY
 from datetime import date, timedelta
+from lib.gpt_prompt import GPT_PROMPT
 
 app = Flask(__name__, static_url_path='/static')
 bcrypt = Bcrypt(app)
@@ -66,8 +67,8 @@ def edit_page(product_id):
     connection = get_flask_database_connection(app)
     product_repository = ProductRepository(connection)
     product = product_repository.find(product_id)
-
-    
+    gpt = GPT_PROMPT(API_KEY().gpt, product.product_name)
+ 
     if request.method == 'POST' and 'delete_post' in request.form:
         product_id_to_delete = int(request.form['delete_post'])
         product_repository.delete(product_id_to_delete)
@@ -85,7 +86,7 @@ def edit_page(product_id):
         return redirect(url_for('login_page'))
 
     
-    return render_template('edit_page.html', user=current_user, product=product, form=add_form)
+    return render_template('edit_page.html', user=current_user, product=product, form=add_form, gpt=gpt)
 
 
 
@@ -128,23 +129,24 @@ def login_page():
     if form.validate_on_submit():
         selected_filter = form.selected_filter.data
         filter_by_products = product_repository.filter_by(selected_filter)
-        
-
-    if request.method == 'POST' and 'delete_post' in request.form:
-        product_id_to_delete = int(request.form['delete_post'])
-        product_repository.delete(product_id_to_delete)
-        return redirect(url_for('login_page'))
+  
     
     if request.method == 'POST' and 'update_post' in request.form:
             product_id = int(request.form['update_post'])
             return redirect(url_for('product_information', product_id=product_id))
     
-    
     page, per_page, offset= get_page_args()
     total = len(filter_by_products)
     pagination = Pagination(page=page, per_page=per_page, total=total, css_framework='bootstrap4')
     paginated_products = filter_by_products[offset: offset + per_page]
-
+    current_page = int(request.args.get('page', 1))
+    print(current_page)
+    
+    if request.method == 'POST' and 'delete_post' in request.form:
+        product_id_to_delete = int(request.form['delete_post'])
+        product_repository.delete(product_id_to_delete)       
+        return redirect(url_for('login_page', page=current_page))
+    
     
     return render_template('login.html', user=current_user, all_users=all_users,
                            product_count=product_count, form=form,
