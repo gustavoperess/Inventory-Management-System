@@ -67,10 +67,7 @@ Usage
 ![Screenshot 2023-12-21 at 11 34 14 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/6e7fbd19-f33b-499c-8edb-02844bb3b860)
 
 
-![Screenshot 2023-12-21 at 11 34 22 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/c2c099eb-c65c-41c6-a90b-61caf36f22f1)
-
-![Screenshot 2023-12-21 at 11 34 31 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/b58c69ac-4d22-4d19-8de8-32f181c2161b)
-
+![Screenshot 2023-12-21 at 11 35 37 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/f58360ae-9967-400e-b10a-93c8ac5f82e4)
 
 
 
