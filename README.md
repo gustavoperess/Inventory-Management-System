@@ -64,10 +64,10 @@ Usage
 # Information page. 
 ![Screenshot 2023-12-21 at 11 33 40 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/cb8eba2f-6a61-4166-832c-f41fa9bc848f)
 
-#Edit page
+# Edit page
 ![Screenshot 2023-12-21 at 11 34 14 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/6e7fbd19-f33b-499c-8edb-02844bb3b860)
 
-#Register page. 
+# Register page. 
 ![Screenshot 2023-12-21 at 11 35 37 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/f58360ae-9967-400e-b10a-93c8ac5f82e4)
 
 
