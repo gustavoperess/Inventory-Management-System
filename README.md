@@ -14,6 +14,11 @@ Flask-WTF: An integration of the WTForms library with Flask for handling web for
 Flask-Paginate: An extension for Flask to simplify pagination.
 PostgreSQL: A relational database management system used to store user and product data.
 
+1. [Containerising a web server](02_containers/01_containerising.md)
+2. [Deploying a web server](02_containers/02_deploying.md)
+3. [Connecting a container to a database](02_containers/03_connecting_to_a_database.md)
+4. [Removing secrets](02_containers/04_removing_secrets.md)
+
 # Setup Prerequisites
 ```
 Instalation
