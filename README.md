@@ -1,25 +1,22 @@
-# Inventory-Management-System
-An example of a Inventory Management System
 
 
 
-Overview
+
+### Overview
+
 This Flask application is a simple web platform for managing user accounts and product information. Users can register, log in, add, edit, and delete products associated with their accounts.
 
-Technologies Used
-Flask: A micro web framework for Python.
-Flask-Bcrypt: An extension for Flask that provides Bcrypt hashing utilities.
-Flask-Login: An extension for Flask that manages user sessions.
-Flask-WTF: An integration of the WTForms library with Flask for handling web forms.
-Flask-Paginate: An extension for Flask to simplify pagination.
-PostgreSQL: A relational database management system used to store user and product data.
+### Technologies Used
 
-1. [Containerising a web server](02_containers/01_containerising.md)
-2. [Deploying a web server](02_containers/02_deploying.md)
-3. [Connecting a container to a database](02_containers/03_connecting_to_a_database.md)
-4. [Removing secrets](02_containers/04_removing_secrets.md)
+1. [Flask: A micro web framework for Python.](https://flask.palletsprojects.com/en/2.3.x/)
+2. [Flask-Bcrypt: An extension for Flask that provides Bcrypt hashing utilities.](https://flask-bcrypt.readthedocs.io/en/1.0.1/)
+3. [Flask-Login: An extension for Flask that manages user sessions.](https://flask-login.readthedocs.io/en/latest/)
+4. [Flask-WTF: An integration of the WTForms library with Flask for handling web forms.](https://flask-wtf.readthedocs.io/en/1.2.x/)
+5. [Flask-Paginate: An extension for Flask to simplify pagination.](https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/pagination/)
+6. [PostgreSQL: A relational database management system used to store user and product data.](https://www.postgresql.org/)
 
-# Setup Prerequisites
+
+###  Setup Prerequisites
 ```
 Instalation
 
