@@ -79,9 +79,9 @@ text-decoration: none;
 .user-heading {
 margin: 0;
 text-align: center;
-margin-right: 300px;
+display: flex;
 color: black;
-font-size: 30px;
+font-size: 20px;
 }
 
 
