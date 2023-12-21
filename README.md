@@ -54,3 +54,23 @@ Usage
 ```
 
 ### Screenshoots 
+
+![Screenshot 2023-12-21 at 11 26 50 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/8dab6109-f1b1-48e3-bd53-ac161604d260)
+
+
+![Screenshot 2023-12-21 at 11 32 36 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/9ebd7767-858a-4699-bcdb-fad2cdc42ec1)
+
+![Screenshot 2023-12-21 at 11 32 49 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/6559c746-6129-4974-96c4-e33a6c64db62)
+
+![Screenshot 2023-12-21 at 11 33 40 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/cb8eba2f-6a61-4166-832c-f41fa9bc848f)
+
+![Screenshot 2023-12-21 at 11 34 14 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/6e7fbd19-f33b-499c-8edb-02844bb3b860)
+
+
+![Screenshot 2023-12-21 at 11 34 22 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/c2c099eb-c65c-41c6-a90b-61caf36f22f1)
+
+![Screenshot 2023-12-21 at 11 34 31 AM](https://github.com/gustavoperess/Inventory-Management-System/assets/32426662/b58c69ac-4d22-4d19-8de8-32f181c2161b)
+
+
+
+
